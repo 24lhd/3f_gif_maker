@@ -21,7 +21,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -39,9 +38,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by LONGG on 10/9/2017.
@@ -50,10 +47,7 @@ import butterknife.OnClick;
 public class EditGifActivity extends AppCompatActivity {
     public static final int FRAGMENT_EDIT_01 = 0;
     public static final int FRAGMET_EDIT_02 = 1;
-    @Bind(R.id.layout_tool_flip)
-    LinearLayout layoutToolFlip;
-    @Bind(R.id.layout_tool_ratio)
-    LinearLayout layoutToolRatio;
+    public static String currentPathFile;
     private boolean isPlayingGif = true;
     private int currentPageSelected = 0;
     private ViewPager pager;
@@ -77,7 +71,6 @@ public class EditGifActivity extends AppCompatActivity {
     public static ArrayList<String> listFrame = new ArrayList<>();
     String path = Environment.getExternalStoragePublicDirectory(
             Environment.DIRECTORY_PICTURES) + "/GifEditor/";
-    public static View layoutCrop;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -90,7 +83,6 @@ public class EditGifActivity extends AppCompatActivity {
 
     private void initViews() {
         imageManager = findViewById(R.id.image_manager);
-        layoutCrop = findViewById(R.id.layout_crop_id);
         this.pager = (ViewPager) findViewById(R.id.viewpager_edit_gif);
         this.viewPagerAdapter = new ViewPagerAdapter(getFragmentManager());
         tabLayout = (TabLayout) findViewById(R.id.tablayout_edit_gif);
@@ -117,7 +109,6 @@ public class EditGifActivity extends AppCompatActivity {
                     isPlayingGif = true;
                     play_pause.setImageResource(R.drawable.ic_btn_pause);
                     EditFragment01.runSeekBar.start();
-
                 }
             }
         });
@@ -127,7 +118,6 @@ public class EditGifActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeFile(path + "out_001.jpg", options);
         mGLImageView.setImageBitmap(bitmap);
         //mGLImageView.setBackgroundResource(R.drawable.ic_logo_facebook);
-
         this.viewPagerAdapter.addFrag(new EditFragment01());
         this.viewPagerAdapter.addFrag(new EditFragment02());
         this.pager.setAdapter(this.viewPagerAdapter);
@@ -137,7 +127,6 @@ public class EditGifActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(pager);
         tabLayout.getTabAt(0).setIcon(R.drawable.bg_tab_play);
         tabLayout.getTabAt(1).setIcon(R.drawable.bg_tab_speed);
-
 
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -251,75 +240,6 @@ public class EditGifActivity extends AppCompatActivity {
             }
         }
         return arr;
-    }
-
-    @OnClick({R.id.layout_crop_imv_ratio, R.id.layout_crop_layout_flip_horizontal, R.id.layout_crop_layout_flip_vertical, R.id.layout_crop_layout_flip_rotate, R.id.layout_crop_layout_reset, R.id.layout_crop_imv_ratio_1_1, R.id.layout_crop_imv_ratio_3_4, R.id.layout_crop_imv_ratio_4_3, R.id.layout_crop_imv_ratio_9_16, R.id.layout_crop_imv_ratio_16_9, R.id.layout_crop_txt_cancel, R.id.layout_crop_txt_apply})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.layout_crop_imv_ratio:
-                if (layoutToolFlip.getVisibility() == View.VISIBLE) {
-                    layoutToolFlip.setVisibility(View.GONE);
-                    layoutToolRatio.setVisibility(View.VISIBLE);
-                } else {
-                    layoutToolFlip.setVisibility(View.VISIBLE);
-                    layoutToolRatio.setVisibility(View.GONE);
-                }
-                break;
-            case R.id.layout_crop_layout_flip_horizontal:
-
-                break;
-            case R.id.layout_crop_layout_flip_vertical:
-
-                break;
-            case R.id.layout_crop_layout_flip_rotate:
-
-                break;
-            case R.id.layout_crop_layout_reset:
-
-                break;
-            case R.id.layout_crop_imv_ratio_free:
-
-                break;
-            case R.id.layout_crop_imv_ratio_1_1:
-
-                break;
-            case R.id.layout_crop_imv_ratio_3_4:
-
-                break;
-            case R.id.layout_crop_imv_ratio_4_3:
-
-                break;
-            case R.id.layout_crop_imv_ratio_9_16:
-
-                break;
-            case R.id.layout_crop_imv_ratio_16_9:
-
-                break;
-            case R.id.layout_crop_txt_cancel:
-                Animation slide_down = AnimationUtils.loadAnimation(getApplicationContext(),
-                        R.anim.slide_dow);
-                EditGifActivity.layoutCrop.startAnimation(slide_down);
-                slide_down.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        EditGifActivity.layoutCrop.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
-                break;
-            case R.id.layout_crop_txt_apply:
-
-                break;
-        }
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

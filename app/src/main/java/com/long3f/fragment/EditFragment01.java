@@ -2,6 +2,7 @@ package com.long3f.fragment;
 
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -18,6 +19,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.duong3f.module.DuongLog;
+import com.duong3f.mvp.cropimage.CropVideoActivity;
 import com.group3f.gifmaker.R;
 import com.long3f.activity.EditGifActivity;
 
@@ -89,7 +91,9 @@ public class EditFragment01 extends Fragment {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inPreferredConfig = Bitmap.Config.ARGB_8888;
                 Bitmap bitmap = BitmapFactory.decodeFile(EditGifActivity.listFrame.get(position), options);
+                DuongLog.loge(getClass(), EditGifActivity.listFrame.get(position));
                 EditGifActivity.mGLImageView.setImageBitmap(bitmap);
+                EditGifActivity.currentPathFile = EditGifActivity.listFrame.get(position);
             }
 
             @Override
@@ -137,11 +141,11 @@ public class EditFragment01 extends Fragment {
 
     @OnClick(R.id.txt_crop)
     public void onViewClicked() {
-        EditGifActivity.layoutCrop.setVisibility(View.VISIBLE);
-        Animation slide_up = AnimationUtils.loadAnimation(getContext(),
-                R.anim.slide_up);
-        DuongLog.loge(getClass(), "txt_crop");
-        EditGifActivity.layoutCrop.startAnimation(slide_up);
+        startActivity(new Intent(getContext(), CropVideoActivity.class));
+//        EditGifActivity.layoutCrop.setVisibility(View.VISIBLE);
+//        Animation slide_up = AnimationUtils.loadAnimation(getContext(),
+//                R.anim.slide_up);
+//        EditGifActivity.layoutCrop.startAnimation(slide_up);
     }
 
 

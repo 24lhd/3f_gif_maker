@@ -120,7 +120,6 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/rotate" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -270,7 +269,6 @@
             android:background="@color/pinkish_grey"
             crop:crop_corner_color="@color/crop_corner_color"
             crop:crop_line_color="@color/crop_line_color"
-
             crop:crop_shadow_color="#77ffffff" />
     </RelativeLayout>
 </RelativeLayout>

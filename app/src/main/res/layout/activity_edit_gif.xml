@@ -123,8 +123,8 @@
         layout="@layout/layout_image_manager"
         android:visibility="gone" />
 
-    <include
-        android:id="@+id/layout_crop_id"
-        layout="@layout/layout_crop_video"
-        android:visibility="gone" />
+    <!--<include-->
+    <!--android:id="@+id/layout_crop_id"-->
+    <!--layout="@layout/layout_crop_video"-->
+    <!--android:visibility="gone" />-->
 </android.support.constraint.ConstraintLayout>
