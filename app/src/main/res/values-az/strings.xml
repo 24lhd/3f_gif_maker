@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Qəbul edin</string>
+    <string name="create_calendar_message">Təqvim tədbiri yaratmaq üçün Reklama icazə verilsin?</string>
+    <string name="create_calendar_title">Təqvim tədbiri yaradın</string>
+    <string name="debug_menu_ad_information">Reklam Məlumatı</string>
+    <string name="debug_menu_creative_preview">Kreativ Önizləmə</string>
+    <string name="debug_menu_title">Debaq Rejimi seçin</string>
+    <string name="debug_menu_troubleshooting">Problem Həlli</string>
+    <string name="decline">Rədd edin</string>
+    <string name="store_picture_message">Reklama təsvirləri Şəkil qalereyasında yadda saxlamağa icazə verilsin?</string>
+    <string name="store_picture_title">Şəkil yadda saxlayın</string>
+</resources>

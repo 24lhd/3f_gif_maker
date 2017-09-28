@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="directory_dialog_height">560.0dip</dimen>
+    <dimen name="directory_dialog_width">480.0dip</dimen>
+    <dimen name="min_width_dialog">400.0dip</dimen>
+    <dimen name="native_ads_dialog_width">408.0dip</dimen>
+    <dimen name="native_ads_main_item_weight">700.0dip</dimen>
+    <dimen name="seek_bar_play_width">400.0dip</dimen>
+    <dimen name="share_dialog_width">440.0dip</dimen>
+</resources>

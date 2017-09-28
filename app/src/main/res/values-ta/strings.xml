@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">ஏற்கிறேன்</string>
+    <string name="create_calendar_message">கேலெண்டர் நிகழ்வை உருவாக்க, விளம்பரத்தை அனுமதிக்கவா?</string>
+    <string name="create_calendar_title">கேலெண்டர் நிகழ்வை உருவாக்கு</string>
+    <string name="debug_menu_ad_information">விளம்பரத் தகவல்</string>
+    <string name="debug_menu_creative_preview">விளம்பரத்தின் மாதிரிக்காட்சி</string>
+    <string name="debug_menu_title">பிழைத் திருத்தப் பயன்முறையைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="debug_menu_troubleshooting">பிழைகாண்</string>
+    <string name="decline">நிராகரி</string>
+    <string name="messenger_send_button_text">அனுப்பு</string>
+    <string name="store_picture_message">பட கேலரியில் படத்தைச் சேமிக்க, விளம்பரத்தை அனுமதிக்கவா?</string>
+    <string name="store_picture_title">படத்தைச் சேமி</string>
+</resources>

@@ -1,0 +1,170 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fffafafa">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/action_bar_control_play_fragment"
+            android:layout_width="fill_parent"
+            android:layout_height="34.0dip"
+            android:layout_alignParentTop="true">
+
+            <TextView
+                android:id="@+id/btn_manager_images"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/top_bar_text_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingLeft="12.0dip"
+                android:paddingRight="12.0dip"
+                android:text="Manager"
+                android:textAllCaps="true"
+                android:textColor="#ff0b96fa"
+                android:textSize="15.0dip" />
+
+            <View
+                android:id="@+id/view_between_btn_manager_images_btn_adjustment"
+                android:layout_width="2.0px"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="2.0dip"
+                android:layout_marginTop="2.0dip"
+                android:layout_toLeftOf="@+id/btn_manager_images"
+                android:background="#ffd9d9d9" />
+
+            <TextView
+                android:id="@+id/txt_crop"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/view_between_btn_manager_images_btn_adjustment"
+                android:background="@drawable/top_bar_text_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingLeft="12.0dip"
+                android:paddingRight="12.0dip"
+                android:text="@string/crop"
+                android:textAllCaps="true"
+                android:textColor="#ff0b96fa"
+                android:textSize="15.0dip" />
+
+            <View
+                android:id="@+id/view_between_btn_manager_images_btn_remove_bg"
+                android:layout_width="2.0px"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="2.0dip"
+                android:layout_marginTop="2.0dip"
+                android:layout_toLeftOf="@+id/btn_adjustment"
+                android:background="#ffd9d9d9" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6.0dip"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/control_play"
+                android:textColor="#ff252525"
+                android:textSize="18.0dip" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2.0px"
+                android:layout_alignParentTop="true"
+                android:background="#12000000" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2.0px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="6.0dip"
+                android:layout_marginRight="6.0dip"
+                android:background="#ffd9d9d9" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/action_bar_control_play_fragment"
+            android:layout_marginTop="5dp"
+            android:duplicateParentState="false">
+
+
+            <TextView
+                android:id="@+id/currentFrame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textSize="18sp" />
+
+            <SeekBar
+                android:id="@+id/seekbar_play_controler"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="6dip"
+                android:minHeight="6dip"
+                android:layout_margin="10dp"
+                android:paddingBottom="10px"
+                android:paddingLeft="30px"
+                android:paddingRight="30px"
+                android:paddingTop="10px"
+                android:layout_below="@+id/currentFrame"
+                android:layout_centerHorizontal="true" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:padding="5dp"
+                android:layout_below="@+id/seekbar_play_controler"
+                android:layout_centerHorizontal="true"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/btn_forward_mode"
+                    android:layout_width="35.0dip"
+                    android:layout_height="35.0dip"
+                    android:background="@drawable/bg_btn_repeat_forward"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24.0dip"
+                        android:layout_height="24.0dip"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_forward" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_repeat_mode"
+                    android:layout_width="35.0dip"
+                    android:layout_height="35.0dip"
+                    android:layout_marginLeft="30.0dip"
+                    android:background="@drawable/bg_btn_repeat_forward"                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24.0dip"
+                        android:layout_height="24.0dip"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_repeat" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>

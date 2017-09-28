@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Kubali</string>
+    <string name="create_calendar_message">Ungependa kuruhusu tangazo liunde tukio la kalenda?</string>
+    <string name="create_calendar_title">Unda tukio la kalenda</string>
+    <string name="debug_menu_ad_information">Maelezo ya Tangazo</string>
+    <string name="debug_menu_creative_preview">Onyesho la Kuchungulia Faili za Tangazo</string>
+    <string name="debug_menu_title">Chagua Hali ya Utatuzi</string>
+    <string name="debug_menu_troubleshooting">Utatuzi</string>
+    <string name="decline">Kataa</string>
+    <string name="search_menu_title">Tafuta</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="store_picture_message">Ungependa kuruhusu tangazo lihifadhi picha katika matunzio ya Picha?</string>
+    <string name="store_picture_title">Hifadhi picha</string>
+</resources>

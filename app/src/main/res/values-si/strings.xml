@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">පිළිගන්න</string>
+    <string name="create_calendar_message">වෙළඳ දැන්වීමට දින දර්ශන සිදුවීමක් සෑදීමට ඉඩ දෙන්නද?</string>
+    <string name="create_calendar_title">දින දර්ශන සිදුවීම සාදන්න</string>
+    <string name="debug_menu_ad_information">වෙළඳ දැන්වීම් තොරතුරු</string>
+    <string name="debug_menu_creative_preview">නිර්මාණශීලී පෙරදසුන</string>
+    <string name="debug_menu_title">දෝෂහරණ ප්‍රකාරයක් තෝරන්න</string>
+    <string name="debug_menu_troubleshooting">දෝෂාවේක්ෂය</string>
+    <string name="decline">ප්‍රතික්ෂේප කරන්න</string>
+    <string name="store_picture_message">වෙළඳ දැන්වීමට පින්තූර ගැලරිය තුළ රූපය ගබඩා කිරීමට ඉඩ දෙන්නද?</string>
+    <string name="store_picture_title">රූපය සුරකින්න</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ED1C24</color>
+    <color name="colorPrimaryDark">#8B0000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black_overlay">#9e000000</color>
+    <color name="topbar_text">#007aff</color>
+    <color name="pinkish_grey">#ccc</color>
+    <color name="white">#fff</color>
+    <color name="blue_text">#007aff</color>
+    <color name="colorCheck">#46000000</color>
+    <color name="colorWhilte">#ffffff</color>
+    <color name="crop_corner_color">#FF4081</color>
+    <color name="crop_line_color">#ffffff</color>
+</resources>

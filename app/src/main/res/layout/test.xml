@@ -1,0 +1,199 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/tools"
+    android:background="#fffafafa">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/gifViewer"
+        android:layout_centerHorizontal="true"
+        />
+
+    <RelativeLayout
+        android:id="@+id/action_bar_control_play_fragment"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/gifViewer"
+        android:layout_marginTop="200dp"
+        android:layout_height="34.0dip"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/btn_manager_images"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/colorPrimary"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="12.0dip"
+            android:text="Manager"
+            android:textAllCaps="true"
+            android:textColor="#ff0b96fa"
+            android:textSize="15.0dip"/>
+
+        <View
+            android:id="@+id/view_between_btn_manager_images_btn_adjustment"
+            android:layout_width="2.0px"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="2.0dip"
+            android:layout_marginTop="2.0dip"
+            android:layout_toLeftOf="@+id/btn_manager_images"
+            android:background="#ffd9d9d9" />
+
+        <TextView
+            android:id="@+id/btn_adjustment"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/view_between_btn_manager_images_btn_adjustment"
+            android:background="@color/colorPrimary"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="12.0dip"
+            android:text="crop"
+            android:textAllCaps="true"
+            android:textColor="#ff0b96fa"
+            android:textSize="15.0dip"/>
+
+        <View
+            android:id="@+id/view_between_btn_manager_images_btn_remove_bg"
+            android:layout_width="2.0px"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="2.0dip"
+            android:layout_marginTop="2.0dip"
+            android:layout_toLeftOf="@+id/btn_adjustment"
+            android:background="#ffd9d9d9" />
+
+        <TextView
+            android:id="@+id/btn_remove_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/view_between_btn_manager_images_btn_remove_bg"
+            android:background="@color/colorPrimary"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="12.0dip"
+            android:text="Remove BG"
+            android:textAllCaps="true"
+            android:textColor="#ff0b96fa"
+            android:textSize="15.0dip" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6.0dip"
+            android:layout_toLeftOf="@+id/btn_remove_bg"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="control_play"
+            android:textColor="#ff252525"
+            android:textSize="18.0dip" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2.0px"
+            android:layout_alignParentTop="true"
+            android:background="#12000000" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2.0px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="6.0dip"
+            android:layout_marginRight="6.0dip"
+            android:background="#ffd9d9d9" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/action_bar_control_play_fragment"
+        android:duplicateParentState="false">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/currentFrame"
+            android:layout_centerHorizontal="true"
+            android:text="0"
+            android:textSize="18sp"
+            />
+        <com.xw.repo.BubbleSeekBar
+            android:id="@+id/seekbar_play_controler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_margin="30dp"
+
+            app:bsb_auto_adjust_section_mark="true"
+            app:bsb_second_track_color="@color/color_blue"
+            app:bsb_section_count="150"
+            app:bsb_section_text_position="below_section_mark"
+            app:bsb_show_section_mark="true"
+            app:bsb_show_section_text="true"
+            app:bsb_show_thumb_text="true"
+            app:bsb_show_progress_in_float="false"
+            app:bsb_thumb_text_size="18sp"
+            app:bsb_always_show_bubble="true"
+            app:bsb_touch_to_seek="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/seekbar_play_controler"
+            android:layout_centerHorizontal="true"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/btn_forward_mode"
+                android:layout_width="42.0dip"
+                android:layout_height="42.0dip"
+                android:background="@color/colorPrimaryDark"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClickGifActivity"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24.0dip"
+                    android:layout_height="24.0dip"
+                    android:src="@color/colorPrimary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_repeat_mode"
+                android:layout_width="42.0dip"
+                android:layout_height="42.0dip"
+                android:layout_marginLeft="30.0dip"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClickGifActivity"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24.0dip"
+                    android:layout_height="24.0dip"
+                    android:src="@color/colorPrimaryDark" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

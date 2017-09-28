@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Prijať</string>
+    <string name="create_calendar_message">Povoliť reklame vytvoriť udalosť v kalendári?</string>
+    <string name="create_calendar_title">Vytvorenie udalosti v kalendári</string>
+    <string name="debug_menu_ad_information">Informácie o reklame</string>
+    <string name="debug_menu_creative_preview">Ukážka kreatívy</string>
+    <string name="debug_menu_title">Vybrať režim ladenia</string>
+    <string name="debug_menu_troubleshooting">Riešenie problémov</string>
+    <string name="decline">Odmietnuť</string>
+    <string name="search_menu_title">Vyhľadávanie</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="store_picture_message">Povoliť reklame uložiť obrázok do galérie obrázkov?</string>
+    <string name="store_picture_title">Uloženie obrázka</string>
+</resources>

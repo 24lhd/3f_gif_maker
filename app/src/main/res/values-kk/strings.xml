@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Қабылдау</string>
+    <string name="create_calendar_message">Жарнамаға күнтізбе оқиғасын жасауға рұқсат берілсін бе?</string>
+    <string name="create_calendar_title">Күнтізбе оқиғасын жасау</string>
+    <string name="debug_menu_ad_information">Жарнама ақпараты</string>
+    <string name="debug_menu_creative_preview">Creative Preview</string>
+    <string name="debug_menu_title">Түзету режимін таңдаңыз</string>
+    <string name="debug_menu_troubleshooting">Ақауларды жою</string>
+    <string name="decline">Қабылдамау</string>
+    <string name="store_picture_message">Жарнамаға кескінді сурет галереясында сақтауға рұқсат берілсін бе?</string>
+    <string name="store_picture_title">Кескінді сақтау</string>
+</resources>

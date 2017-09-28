@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Nõustu</string>
+    <string name="create_calendar_message">Kas lubada reklaamil luua kalendrisündmus?</string>
+    <string name="create_calendar_title">Loo kalendrisündmus</string>
+    <string name="debug_menu_ad_information">Teave reklaami kohta</string>
+    <string name="debug_menu_creative_preview">Reklaami eelvaade</string>
+    <string name="debug_menu_title">Valige silumisrežiim</string>
+    <string name="debug_menu_troubleshooting">Veaotsing</string>
+    <string name="decline">Keeldu</string>
+    <string name="store_picture_message">Kas lubada reklaamil salvestada kujutis pildigaleriisse?</string>
+    <string name="store_picture_title">Salvesta kujutis</string>
+</resources>

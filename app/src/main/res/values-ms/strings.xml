@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Terima</string>
+    <string name="create_calendar_message">Benarkan Iklan membuat acara kalendar?</string>
+    <string name="create_calendar_title">Buat acara kalendar</string>
+    <string name="debug_menu_ad_information">Maklumat Iklan</string>
+    <string name="debug_menu_creative_preview">Pratonton Kreatif</string>
+    <string name="debug_menu_title">Pilih Mod Nyahpepijat</string>
+    <string name="debug_menu_troubleshooting">Selesaikan masalah</string>
+    <string name="decline">Tolak</string>
+    <string name="messenger_send_button_text">Hantar</string>
+    <string name="store_picture_message">Benarkan Iklan menyimpan imej dalam galeri Gambar?</string>
+    <string name="store_picture_title">Simpan imej</string>
+</resources>

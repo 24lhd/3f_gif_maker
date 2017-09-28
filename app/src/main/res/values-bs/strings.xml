@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Prihvati</string>
+    <string name="create_calendar_message">Želite li dozvoliti oglasu da kreira događaj u kalendaru?</string>
+    <string name="create_calendar_title">Napravi događaj u kalendaru</string>
+    <string name="debug_menu_ad_information">Informacije o oglasu</string>
+    <string name="debug_menu_creative_preview">Kreativni pregled</string>
+    <string name="debug_menu_title">Izaberite način rada za uklanjanje grešaka</string>
+    <string name="debug_menu_troubleshooting">Rješavanje problema</string>
+    <string name="decline">Odbij</string>
+    <string name="store_picture_message">Želite li dozvoliti da oglas pohrani sliku u Galeriju slika?</string>
+    <string name="store_picture_title">Sačuvaj sliku</string>
+</resources>

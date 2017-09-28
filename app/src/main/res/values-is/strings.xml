@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Samþykkja</string>
+    <string name="create_calendar_message">Leyfa auglýsingu að búa til dagatalsviðburð?</string>
+    <string name="create_calendar_title">Búa til dagatalsviðburð</string>
+    <string name="debug_menu_ad_information">Upplýsingar um auglýsingu</string>
+    <string name="debug_menu_creative_preview">Creative Preview</string>
+    <string name="debug_menu_title">Veldu villuleitarstillingu</string>
+    <string name="debug_menu_troubleshooting">Úrræðaleit</string>
+    <string name="decline">Hafna</string>
+    <string name="store_picture_message">Leyfa auglýsingu að vista mynd í myndasafninu?</string>
+    <string name="store_picture_title">Vista mynd</string>
+</resources>

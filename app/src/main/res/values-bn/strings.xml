@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">স্বীকার করুন</string>
+    <string name="create_calendar_message">বিজ্ঞাপনকে একটি ক্যালেন্ডার ইভেন্ট তৈরি করার অনুমতি দেবেন?</string>
+    <string name="create_calendar_title">ক্যালেন্ডার ইভেন্ট তৈরি করুন</string>
+    <string name="debug_menu_ad_information">বিজ্ঞাপনের তথ্য</string>
+    <string name="debug_menu_creative_preview">রচনাত্মক পূর্বরূপ</string>
+    <string name="debug_menu_title">একটি ডিবাগ মোড নির্বাচন করুন</string>
+    <string name="debug_menu_troubleshooting">সমস্যা নিবারণ</string>
+    <string name="decline">প্রত্যাখ্যান করুন</string>
+    <string name="messenger_send_button_text">প্রেরণ করুন</string>
+    <string name="store_picture_message">বিজ্ঞাপনকে, চিত্র গ্যালারিতে ছবি সংরক্ষণ করার অনুমতি দেবেন?</string>
+    <string name="store_picture_title">ছবি সংরক্ষন করুন</string>
+</resources>

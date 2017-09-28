@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">स्वीकार गर्नुहोस्</string>
+    <string name="create_calendar_message">विज्ञापनलाई पात्रोको कार्यक्रम सिर्जना गर्न दिने हो?</string>
+    <string name="create_calendar_title">पात्रोको कार्यक्रम सिर्जना गर्नुहोस्</string>
+    <string name="debug_menu_ad_information">विज्ञापन सम्बन्धी जानकारी</string>
+    <string name="debug_menu_creative_preview">सिर्जनात्मक पूर्वावलोकन</string>
+    <string name="debug_menu_title">कुनै डिबग मोड चयन</string>
+    <string name="debug_menu_troubleshooting">समस्या निवारण</string>
+    <string name="decline">अस्वीकार गर्नुहोस्</string>
+    <string name="store_picture_message">विज्ञापनलाई तस्बिरको ग्यालरीमा छवि भण्डारण गर्न अनुमति दिने हो?</string>
+    <string name="store_picture_title">छविलाई सुरक्षित गर्नुहोस्</string>
+</resources>
