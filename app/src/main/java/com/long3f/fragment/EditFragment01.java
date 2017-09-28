@@ -18,7 +18,6 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.duong3f.module.DuongLog;
 import com.duong3f.mvp.cropimage.CropVideoActivity;
 import com.group3f.gifmaker.R;
 import com.long3f.activity.EditGifActivity;
@@ -91,7 +90,6 @@ public class EditFragment01 extends Fragment {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inPreferredConfig = Bitmap.Config.ARGB_8888;
                 Bitmap bitmap = BitmapFactory.decodeFile(EditGifActivity.listFrame.get(position), options);
-                DuongLog.loge(getClass(), EditGifActivity.listFrame.get(position));
                 EditGifActivity.mGLImageView.setImageBitmap(bitmap);
                 EditGifActivity.currentPathFile = EditGifActivity.listFrame.get(position);
             }
@@ -141,7 +139,7 @@ public class EditFragment01 extends Fragment {
 
     @OnClick(R.id.txt_crop)
     public void onViewClicked() {
-        startActivity(new Intent(getContext(), CropVideoActivity.class));
+        startActivity(new Intent(getActivity(), CropVideoActivity.class));
 //        EditGifActivity.layoutCrop.setVisibility(View.VISIBLE);
 //        Animation slide_up = AnimationUtils.loadAnimation(getContext(),
 //                R.anim.slide_up);

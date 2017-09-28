@@ -100,7 +100,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/layout_crop_layout_flip_rotate"
+                    android:id="@+id/layout_crop_layout_rotate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -260,7 +260,7 @@
         android:background="@color/pinkish_grey"
         android:padding="20dp">
 
-        <me.littlecheesecake.croplayout.EditPhotoView
+        <com.duong3f.module.MyEditCrop
             android:id="@+id/layout_crop_edit_cropview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

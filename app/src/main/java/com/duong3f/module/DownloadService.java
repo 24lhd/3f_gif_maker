@@ -39,7 +39,6 @@ public class DownloadService extends IntentService {
             // download the file
             InputStream input = new BufferedInputStream(connection.getInputStream());
             OutputStream output = new FileOutputStream(Environment.getDownloadCacheDirectory() + "/Gif Maker/" + urlToDownload.split("/")[urlToDownload.split("/").length - 1]);
-            DuongLog.loge(getClass(), "" + Environment.getDownloadCacheDirectory() + "/Gif Maker/" + urlToDownload.split("/")[urlToDownload.split("/").length - 1]);
             byte data[] = new byte[1024];
             long total = 0;
             int count;

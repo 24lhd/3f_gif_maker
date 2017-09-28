@@ -225,7 +225,7 @@ public class EditGifActivity extends AppCompatActivity {
 
     private ArrayList<Bitmap> listFilesForFolder(final File folder) {
         ArrayList<Bitmap> arr = new ArrayList<>();
-        DuongLog.loge(getClass(), folder.getParent());
+        DuongLog.e(getClass(), folder.getParent());
         if (!folder.exists()) {
             folder.mkdirs();
         }

@@ -84,7 +84,7 @@ public class TaskGetFolderImage extends AsyncTask<Void, Void, List<AlbumImage>> 
         ems.obj = imageAlba;
         handler.sendMessage(ems);
         for (AlbumImage imageAlbum : imageAlba) {
-            DuongLog.loge(getClass(), imageAlbum.toString());
+            DuongLog.e(getClass(), imageAlbum.toString());
 //            Log.e("leuleu", imageAlbum.toString());
 
         }

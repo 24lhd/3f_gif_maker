@@ -18,7 +18,6 @@ import com.duong3f.adaptor.AdaptorFolderImageListView;
 import com.duong3f.adaptor.AdaptorImageSelected;
 import com.duong3f.adaptor.AdaptorItemImageInFolder;
 import com.duong3f.config.Config;
-import com.duong3f.module.DuongLog;
 import com.duong3f.obj.AlbumImage;
 import com.duong3f.obj.Image;
 import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
@@ -187,8 +186,6 @@ public class SelectImageFormFolderAcivity extends AppCompatActivity implements S
             public void run() {
                 for (Image image : imagesSelect) {
 //            DuongLog.loge(getClass(), image.toString());
-                    DuongLog.loge(getClass(), Environment.getExternalStorageDirectory().getPath() +
-                            "/GifFlag/out_" + imagesSelect.indexOf(image) + ".jpg");
                     try {
                         File newFile = new File(Environment.getExternalStorageDirectory().getPath() +
                                 "/GifFlag/out_" + String.format("%03d", (imagesSelect.indexOf(image) + 1)) + ".jpg");
@@ -219,7 +216,6 @@ public class SelectImageFormFolderAcivity extends AppCompatActivity implements S
 
     @OnClick(R.id.layout_select_picture_from_store_imv_back)
     public void backToMain(View view) {
-        DuongLog.loge(getClass(), "backToMain");
         setResult(RESULT_CANCELED);
         finish();
     }

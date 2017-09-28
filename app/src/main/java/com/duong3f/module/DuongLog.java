@@ -1,6 +1,5 @@
 package com.duong3f.module;
 
-import android.content.Context;
 import android.util.Log;
 
 /**
@@ -8,20 +7,19 @@ import android.util.Log;
  */
 
 public class DuongLog {
-
-    public static void loge(Class t, String log) {
-        Log.e(t.getName(), log);
+    public static void e(Class t, String log) {
+        Log.e("DuongLog " + t.getSimpleName(), log);
     }
 
-    public static void logv(Context context, String log) {
-        Log.v(context.getClass().getName(), log);
+    public static void d(Class t, String log) {
+        Log.d("DuongLog " + t.getSimpleName(), log);
     }
 
-    public static void logd(Context context, String log) {
-        Log.d(context.getClass().getName(), log);
+    public static void v(Class t, String log) {
+        Log.v("DuongLog " + t.getSimpleName(), log);
     }
 
-    public static void logw(Context context, String log) {
-        Log.w(context.getClass().getName(), log);
+    public static void w(Class t, String log) {
+        Log.w("DuongLog " + t.getSimpleName(), log);
     }
 }
