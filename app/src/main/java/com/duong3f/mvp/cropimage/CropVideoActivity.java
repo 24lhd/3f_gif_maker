@@ -1,6 +1,7 @@
 package com.duong3f.mvp.cropimage;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
@@ -19,6 +20,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -43,7 +45,8 @@ public class CropVideoActivity extends AppCompatActivity {
     private String sizeCrop;
     private File currentFile;
     private File flagFile;
-    private EditableImage image;
+    private EditableImage editableImage;
+    private ScalableBox scalableBox;
 
     /*
         - crop video, image, gif
@@ -68,15 +71,35 @@ ffmpeg -y  -i INPUT -vf transpose=1 OUTPUT
 
 ffmpeg -y  -i INPUT -vf transpose=2 OUTPUT
          */
+
+    String pathFlag = Environment.getExternalStoragePublicDirectory(
+            Environment.DIRECTORY_PICTURES) + "/GifEditorFlag/";
+    String pathFile = Environment.getExternalStoragePublicDirectory(
+            Environment.DIRECTORY_PICTURES) + "/GifEditor/";
+    ArrayList<String> listFileFlag;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_crop_video);
         ButterKnife.bind(this);
+        listFileFlag = new ArrayList<>();
         currentFile = new File(EditGifActivity.currentPathFile);
-        flagFile = new File(currentFile.getParent() + "/flag." + FilenameUtils.getExtension(EditGifActivity.currentPathFile));
+        flagFile = new File(pathFlag + "/flag-" + String.format("%03d", (EditGifActivity.indexPathFile + 1)) + "." + FilenameUtils.getExtension(EditGifActivity.currentPathFile));
+        if (!flagFile.exists()) {
+            flagFile.getParentFile().mkdirs();
+            try {
+                flagFile.createNewFile();
+            } catch (IOException e) {
+            }
+        }
         try {
-            Config.copy(currentFile, flagFile);
+            //String.format("%03d", (imagesSelect.indexOf(image) + 1))
+            for (int i = 0; i < EditGifActivity.currentPathFiles.size(); i++) {
+                File fileCopy = new File(pathFlag + "/flag-" + String.format("%03d", (i + 1)) + "." + FilenameUtils.getExtension(EditGifActivity.currentPathFile));
+                Config.copy(new File(EditGifActivity.currentPathFiles.get(i)), fileCopy);
+                listFileFlag.add(fileCopy.getPath());
+            }
             DuongLog.e(getClass(), flagFile.getPath());
         } catch (IOException e) {
             DuongLog.e(getClass(), e.getMessage());
@@ -84,19 +107,39 @@ ffmpeg -y  -i INPUT -vf transpose=2 OUTPUT
         setImageToCropViewFromPath(flagFile.getPath());
     }
 
+//    private void apply() {
+//        for (int i = 0; i < listFileFlag.size(); i++) {
+//            try {
+//                Config.copy(new File(listFileFlag.get(i)), new File(EditGifActivity.currentPathFiles.get(i)));
+//            } catch (IOException e) {
+//
+//            }
+//        }
+//    }
+
     public void setImageToCropViewFromPath(String pathFile) {
-        image = new EditableImage(pathFile);
-        ScalableBox box = new ScalableBox(0, 0, 200,200);
-//        image.setBox(box);
-//        layoutCropEditCropview.removeAllViews();
-        layoutCropEditCropview = findViewById(R.id.layout_crop_edit_cropview);
-//        layoutCropEditCropview = new MyEditCrop(this);
-        layoutCropEditCropview.initView(this, image);
+        editableImage = new EditableImage(pathFile);
+        scalableBox = new ScalableBox(0, 0, 100, 200);
+        editableImage.setBox(scalableBox);
+
+        layoutCropEditCropview.initView(this, editableImage);
         layoutCropEditCropview.setOnBoxChangedListener(new OnBoxChangedListener() {
             @Override
             public void onChanged(int x1, int y1, int x2, int y2) {
                 sizeCrop = "" + (x2 - x1) + ":" + (y2 - y1) + ":" + x1 + ":" + y1 + "";
                 DuongLog.e(getClass(), sizeCrop);
+                DuongLog.e(getClass(), " " + editableImage.getOriginalImage().getWidth() + " x " + editableImage.getOriginalImage().getHeight());
+                DuongLog.e(getClass(), " x1 = " + x1 + " y1 = " + y1 + " x2 = " + x2 + " y2 = " + y2);
+                DuongLog.e(getClass(), " x1 = " + x1 + " y1 = " + y1 + " x2 = " + (y2 + x1) + " y2 = " + (y2 + y1));
+                int w = editableImage.getOriginalImage().getWidth();
+                int h = editableImage.getOriginalImage().getHeight();
+                int duongCheo = (int) Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+//                if ((y2 + x1) > editableImage.getOriginalImage().getWidth()) {
+//                    x1 = (y2 + x1) - x1;
+//                }
+                int x22 = duongCheo + x1;
+                int y22 = duongCheo + y1;
+                layoutCropEditCropview.refeshSelectionViewScale(x1, y1, x22, y22);
             }
         });
     }
@@ -128,7 +171,6 @@ ffmpeg -y  -i INPUT -vf transpose=2 OUTPUT
                 }
                 break;
             case R.id.layout_crop_layout_flip_horizontal:
-//                DuongLog.e(CropVideoActivity.this.getClass(), sizeCrop);
                 Config.runFFmpegCommandCallback(
                         Config.getCommandFlipHolizontal(flagFile.getPath(), flagFile.getPath()),
                         this,
@@ -136,11 +178,9 @@ ffmpeg -y  -i INPUT -vf transpose=2 OUTPUT
                             @Override
                             public void handleMessage(Message msg) {
                                 if (Config.onSuccess == msg.what) {
-                                    DuongLog.e(CropVideoActivity.this.getClass(), "done getCommandFlipHolizontal");
                                     Toast.makeText(CropVideoActivity.this, "done getCommandFlipHolizontal", Toast.LENGTH_SHORT).show();
 //                                    Picasso.with(CropVideoActivity.this).load(new File(flagFile.getPath())).into(layoutCropEditCropview.getImageView());
-                                    layoutCropEditCropview.editableImage = new EditableImage(flagFile.getPath());
-                                    layoutCropEditCropview.refeshView();
+                                    layoutCropEditCropview.refeshView(flagFile.getPath());
                                 }
 
 
@@ -158,19 +198,7 @@ ffmpeg -y  -i INPUT -vf transpose=2 OUTPUT
                             public void handleMessage(Message msg) {
                                 if (Config.onSuccess == msg.what) {
 //                                    Picasso.with(CropVideoActivity.this).load(new File(flagFile.getPath())).into(layoutCropEditCropview.getImageView());
-//                                    me.littlecheesecake.croplayout.EditableImage editableImage = new EditableImage(flagFile.getPath());
-//                                    //re-calculate and draw selection box
-//                                    editableImage.getBox().setX1(10);
-//                                    editableImage.getBox().setY1(10);
-//                                    editableImage.getBox().setX2(editableImage.getActualSize()[0]);
-//                                    editableImage.getBox().setY2(editableImage.getActualSize()[1]);
-//                                    layoutCropEditCropview.selectionView.setBoxSize(editableImage, editableImage.getBox(), editableImage.getViewWidth(), editableImage.getViewHeight());
-//                                    layoutCropEditCropview.getImageView().setImageBitmap(editableImage.getOriginalImage());
-                                    EditableImage image = new EditableImage(flagFile.getPath());
-                                    ScalableBox box = new ScalableBox(0, 0, 100, 100);
-                                    image.setBox(box);
-                                    layoutCropEditCropview.editableImage = image;
-                                    layoutCropEditCropview.refeshView();
+                                    layoutCropEditCropview.refeshView(flagFile.getPath());
                                     layoutCropEditCropview.selectionView.updateOriginalBox();
                                     Toast.makeText(CropVideoActivity.this, "done getCommandFlipVertical", Toast.LENGTH_SHORT).show();
                                 }
@@ -180,42 +208,47 @@ ffmpeg -y  -i INPUT -vf transpose=2 OUTPUT
                 );
                 break;
             case R.id.layout_crop_layout_rotate:
-//                DuongLog.e(CropVideoActivity.this.getClass(), sizeCrop);
-                layoutCropEditCropview.rotateImageView();
-//                Config.runFFmpegCommandCallback(
-//                        Config.getCommandRotation(flagFile.getPath(), flagFile.getPath()),
-//                        this,
-//                        new Handler() {
-//                            @Override
-//                            public void handleMessage(Message msg) {
-//                                if (Config.onSuccess == msg.what) {
-//                                    Toast.makeText(CropVideoActivity.this, "done getCommandRotation", Toast.LENGTH_SHORT).show();
-////                                    Picasso.with(CropVideoActivity.this).load(new File(flagFile.getPath())).into(layoutCropEditCropview.getImageView());
-//                                    layoutCropEditCropview.editableImage = new EditableImage(flagFile.getPath());
-//                                    layoutCropEditCropview.refeshView();
-//                                }
-////                                    DuongLog.e(CropVideoActivity.this.getClass(), "done getCommandRotation");
-//
-//                            }
-//
-//                        }
-//                );
+
+                Config.runFFmpegCommandCallback(
+                        Config.getCommandRotation(flagFile.getParent() + "/flag-%03d." + FilenameUtils.getExtension(flagFile.getPath()), flagFile.getParent() + "/flag-%03d." + FilenameUtils.getExtension(flagFile.getPath())),
+                        this,
+                        new Handler() {
+                            @Override
+                            public void handleMessage(Message msg) {
+                                if (Config.onSuccess == msg.what) {
+                                    layoutCropEditCropview.rotateImageView();
+                                    Toast.makeText(CropVideoActivity.this, "done getCommandRotation", Toast.LENGTH_SHORT).show();
+//                                    Picasso.with(CropVideoActivity.this).load(new File(flagFile.getPath())).into(layoutCropEditCropview.getImageView());
+                                    layoutCropEditCropview.refeshView(flagFile.getPath());
+                                }
+                            }
+
+                        }
+                );
                 break;
             case R.id.layout_crop_layout_reset:
+
                 break;
             case R.id.layout_tool_flip:
+
                 break;
             case R.id.layout_crop_imv_ratio_free:
+
                 break;
             case R.id.layout_crop_imv_ratio_1_1:
+
                 break;
             case R.id.layout_crop_imv_ratio_3_4:
+
                 break;
             case R.id.layout_crop_imv_ratio_4_3:
+
                 break;
             case R.id.layout_crop_imv_ratio_9_16:
+
                 break;
             case R.id.layout_crop_imv_ratio_16_9:
+
                 break;
             case R.id.layout_tool_ratio:
 
@@ -225,43 +258,31 @@ ffmpeg -y  -i INPUT -vf transpose=2 OUTPUT
                 break;
             case R.id.layout_crop_txt_apply:
                 DuongLog.e(CropVideoActivity.this.getClass(), sizeCrop);
-                Config.runFFmpegCommandCallback(
-                        Config.getCommandCrop(flagFile.getPath(), flagFile.getPath(), sizeCrop),
-                        this,
-                        new Handler() {
-                            @Override
-                            public void handleMessage(Message msg) {
-                                if (Config.onSuccess == msg.what) {
-                                    DuongLog.e(CropVideoActivity.this.getClass(), "done CommandCrop");
-                                    Toast.makeText(CropVideoActivity.this, "done CommandCrop", Toast.LENGTH_SHORT).show();
-//                                    layoutCropEditCropview.removeAllViews();
-//                                    layoutCropEditCropview.imageView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
-//                                    layoutCropEditCropview.selectionView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
-//                                    layoutCropEditCropview.addView(layoutCropEditCropview.imageView, 0);
-//                                    layoutCropEditCropview.addView(layoutCropEditCropview.selectionView, 1);
-//                                    layoutCropEditCropview.initView(CropVideoActivity.this, image);
-//                                    image = new EditableImage(flagFile.getPath());
-//                                    layoutCropEditCropview.selectionView.setBoxSize(image, image.getBox(), 10, 10);
-//                                    Picasso.with(CropVideoActivity.this).load(new File(flagFile.getPath())).into(layoutCropEditCropview.getImageView());
-//                                    me.littlecheesecake.croplayout.EditableImage editableImage = new EditableImage(flagFile.getPath());
-//                                    //re-calculate and draw selection box
-//                                    editableImage.getBox().setX1(10);
-//                                    editableImage.getBox().setY1(10);
-//                                    editableImage.getBox().setX2(editableImage.getActualSize()[0]);
-//                                    editableImage.getBox().setY2(editableImage.getActualSize()[1]);
-//                                    layoutCropEditCropview.selectionView.setBoxSize(editableImage, editableImage.getBox(), editableImage.getViewWidth(), editableImage.getViewHeight());
-//                                    layoutCropEditCropview.getImageView().setImageBitmap(editableImage.getOriginalImage());
-                                    EditableImage image = new EditableImage(flagFile.getPath());
-//                                    ScalableBox box = new ScalableBox(0, 0, 100, 100);
-//                                    image.setBox(box);
-                                    layoutCropEditCropview.editableImage = image;
-                                    layoutCropEditCropview.refeshView();
-                                    layoutCropEditCropview.selectionView.updateOriginalBox();
+//                for (String str : listFileFlag) {
+//                    DuongLog.e(getClass(), editableImage.cropOriginalImage(new File(str).getPath(), new File(EditGifActivity.currentPathFiles.get(listFileFlag.indexOf(str))).getName()));
+//                }
+                editableImage.cropOriginalImage(pathFlag, "abc.png");
 
-                                }
-                            }
-                        }
-                );
+
+                DuongLog.e(getClass(), "" + editableImage.getViewWidth());
+                DuongLog.e(getClass(), "" + editableImage.getViewHeight());
+                DuongLog.e(getClass(), "" + editableImage.getOriginalImage().getWidth());
+                DuongLog.e(getClass(), "" + editableImage.getOriginalImage().getHeight());
+//                scalableBox = new ScalableBox(0, 0, 150, 150);
+//                editableImage.setBox(scalableBox);
+                layoutCropEditCropview.refeshSelectionView(0, 0, 100, 300);
+//                Config.runFFmpegCommandCallback(
+//                        Config.getCommandCrop(flagFile.getParent() + "/flag-%03d." + FilenameUtils.getExtension(flagFile.getPath()), flagFile.getParent() + "/flag-%03d." + FilenameUtils.getExtension(flagFile.getPath()), sizeCrop),
+//                        this, new Handler() {
+//                            @Override
+//                            public void handleMessage(Message msg) {
+//                                if (Config.onSuccess == msg.what) {
+//                                    Toast.makeText(CropVideoActivity.this, "done CommandCrop", Toast.LENGTH_SHORT).show();
+//                                    finish();
+//                                }
+//                            }
+//                        }
+//                );
                 break;
             case R.id.layout_crop_edit_cropview:
                 break;

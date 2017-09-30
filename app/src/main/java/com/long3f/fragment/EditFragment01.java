@@ -83,6 +83,7 @@ public class EditFragment01 extends Fragment {
         runSeekBar = new RunSeekBar();
         runSeekBar.start();
         setForwardOrRepeat(1);
+        EditGifActivity.currentPathFiles = EditGifActivity.listFrame;
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int position, boolean b) {
@@ -92,6 +93,8 @@ public class EditFragment01 extends Fragment {
                 Bitmap bitmap = BitmapFactory.decodeFile(EditGifActivity.listFrame.get(position), options);
                 EditGifActivity.mGLImageView.setImageBitmap(bitmap);
                 EditGifActivity.currentPathFile = EditGifActivity.listFrame.get(position);
+                EditGifActivity.indexPathFile = position;
+
             }
 
             @Override

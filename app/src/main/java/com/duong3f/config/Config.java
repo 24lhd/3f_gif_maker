@@ -130,14 +130,15 @@ public class Config {
 
     public static String getCommandCrop(String inputFileName, String outputFileName, String sizeCrop) {
         return "-y -i " + inputFileName + " -filter:v crop=" + sizeCrop + " " + outputFileName;
+//        return "-y -i " + inputFileName + " crop=" + sizeCrop + " " + outputFileName;
     }
 
     public static String getCommandFlipVertical(String inputFileName, String outputFileName) {
-        return "-y -i " + inputFileName + " -vf vflip " + outputFileName;
+        return "-y -i " + inputFileName + " -vf hflip " + outputFileName;
     }
 
     public static String getCommandFlipHolizontal(String inputFileName, String outputFileName) {
-        return "-y -i " + inputFileName + " -vf hflip " + outputFileName;
+        return "-y -i " + inputFileName + " -vf vflip " + outputFileName;
     }
 
     public static String getCommandRotation(String inputFileName, String outputFileName) {
