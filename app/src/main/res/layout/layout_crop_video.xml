@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:background="@color/colorWhilte"
         android:orientation="vertical">
 
@@ -24,6 +26,7 @@
                 android:id="@+id/layout_crop_imv_ratio"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="@drawable/top_bar_text_selector"
                 android:orientation="vertical"
@@ -150,77 +153,94 @@
             <LinearLayout
                 android:id="@+id/layout_tool_ratio"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
+                android:orientation="vertical"
+                android:padding="10dp"
                 android:visibility="gone">
 
-                <ImageView
-                    android:id="@+id/layout_crop_imv_ratio_free"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                <SeekBar
+                    android:id="@+id/seek_bar_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:indeterminate="false" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/top_bar_text_selector"
-                    android:padding="2dp"
-                    android:src="@drawable/ic_btn_adjustment_free" />
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/layout_crop_imv_ratio_1_1"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/top_bar_text_selector"
-                    android:padding="2dp"
-                    android:src="@drawable/ic_btn_adjustment_1_1" />
+                    <ImageView
+                        android:id="@+id/layout_crop_imv_ratio_free"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/top_bar_text_selector"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_btn_adjustment_free" />
 
-
-                <ImageView
-                    android:id="@+id/layout_crop_imv_ratio_3_4"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/top_bar_text_selector"
-                    android:padding="2dp"
-                    android:src="@drawable/ic_btn_adjustment_3_4" />
+                    <ImageView
+                        android:id="@+id/layout_crop_imv_ratio_1_1"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/top_bar_text_selector"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_btn_adjustment_1_1" />
 
 
-                <ImageView
-                    android:id="@+id/layout_crop_imv_ratio_4_3"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/top_bar_text_selector"
-                    android:padding="2dp"
-                    android:src="@drawable/ic_btn_adjustment_4_3" />
+                    <ImageView
+                        android:id="@+id/layout_crop_imv_ratio_3_4"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/top_bar_text_selector"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_btn_adjustment_3_4" />
 
 
-                <ImageView
-                    android:id="@+id/layout_crop_imv_ratio_9_16"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/top_bar_text_selector"
-                    android:padding="2dp"
-                    android:src="@drawable/ic_btn_adjustment_9_16" />
+                    <ImageView
+                        android:id="@+id/layout_crop_imv_ratio_4_3"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/top_bar_text_selector"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_btn_adjustment_4_3" />
 
 
-                <ImageView
-                    android:id="@+id/layout_crop_imv_ratio_16_9"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/top_bar_text_selector"
-                    android:padding="2dp"
-                    android:src="@drawable/ic_btn_adjustment_16_9" />
+                    <ImageView
+                        android:id="@+id/layout_crop_imv_ratio_9_16"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/top_bar_text_selector"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_btn_adjustment_9_16" />
 
 
+                    <ImageView
+                        android:id="@+id/layout_crop_imv_ratio_16_9"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/top_bar_text_selector"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_btn_adjustment_16_9" />
+
+
+                </LinearLayout>
             </LinearLayout>
+
+
         </LinearLayout>
 
         <RelativeLayout

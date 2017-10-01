@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import me.littlecheesecake.croplayout.model.ScalableBox;
+
 /**
  * Created by d on 9/17/2017.
  */
@@ -202,6 +204,18 @@ public class Config {
         }
         cropBitmap.recycle();
         return fullPath;
+    }
+
+    public static Bitmap cropBitmap(Bitmap bitmap, ScalableBox scalableBox) {
+        int x1 = scalableBox.getX1();
+        int y1 = scalableBox.getY1();
+        int x2 = scalableBox.getX2();
+        int y2 = scalableBox.getY2();
+        if (y2 - y1 > bitmap.getHeight())
+            y2 = bitmap.getHeight() + y1;
+        if (x2 - x1 > bitmap.getWidth())
+            x2 = bitmap.getWidth() + x1;
+        return Bitmap.createBitmap(bitmap, x1, y1, x2 - x1, y2 - y1);
     }
 
     public static Bitmap getBitmapFromPath(String filePath) {
