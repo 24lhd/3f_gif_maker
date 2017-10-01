@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import me.littlecheesecake.croplayout.EditableImage;
 import me.littlecheesecake.croplayout.handler.OnBoxChangedListener;
 import me.littlecheesecake.croplayout.model.ScalableBox;
 
@@ -19,7 +18,7 @@ public class MySelectView extends View implements View.OnTouchListener {
     private static final String SELECTION_VIEW = "BOX SELECTION VIEW";
 
     private OnBoxChangedListener onBoxChangedListener;
-    private EditableImage editableImage;
+    private MyEditableImage editableImage;
 
     private int bitmapWidth;
     private int bitmapHeight;
@@ -49,7 +48,7 @@ public class MySelectView extends View implements View.OnTouchListener {
     public MySelectView(Context context,
                         float lineWidth, float cornerWidth, float cornerLength,
                         int lineColor, int cornerColor, int shadowColor,
-                        EditableImage editableImage) {
+                        MyEditableImage editableImage) {
         super(context);
         this.displayBox = new ScalableBox(editableImage.getBox().getX1(), editableImage.getBox().getY1(),
                 editableImage.getBox().getX2(), editableImage.getBox().getY2());
@@ -70,18 +69,15 @@ public class MySelectView extends View implements View.OnTouchListener {
     public void resetBoxSize(int bitmapWidth, int bitmapHeight) {
         this.bitmapWidth = bitmapWidth;
         this.bitmapHeight = bitmapHeight;
-
         int size = (bitmapWidth < bitmapHeight) ? bitmapWidth : bitmapHeight;
-
         displayBox.setX1((getWidth() - size) / 2);
         displayBox.setX2((getWidth() + size) / 2);
         displayBox.setY1((getHeight() - size) / 2);
         displayBox.setY2((getHeight() + size) / 2);
-
         invalidate();
     }
 
-    public void setBoxSize(EditableImage editableImage, ScalableBox originalBox, int widthX, int heightY) {
+    public void setBoxSize(MyEditableImage editableImage, ScalableBox originalBox, int widthX, int heightY) {
         this.displayBox = new ScalableBox(originalBox.getX1(), originalBox.getY1(), originalBox.getX2(), originalBox.getY2());
 
         this.bitmapWidth = editableImage.getFitSize()[0];

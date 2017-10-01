@@ -71,7 +71,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="@string/flip_horizontal" />
+                        android:text="@string/flip_vertical" />
 
                 </LinearLayout>
 
@@ -95,7 +95,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="@string/flip_vertical" />
+                        android:text="@string/flip_horizontal" />
 
                 </LinearLayout>
 

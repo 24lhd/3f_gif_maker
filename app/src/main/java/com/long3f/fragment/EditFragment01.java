@@ -83,7 +83,7 @@ public class EditFragment01 extends Fragment {
         runSeekBar = new RunSeekBar();
         runSeekBar.start();
         setForwardOrRepeat(1);
-        EditGifActivity.currentPathFiles = EditGifActivity.listFrame;
+        EditGifActivity.arrPathFile = EditGifActivity.listFrame;
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int position, boolean b) {

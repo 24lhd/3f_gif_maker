@@ -48,8 +48,8 @@ public class EditGifActivity extends AppCompatActivity {
     public static final int FRAGMENT_EDIT_01 = 0;
     public static final int FRAGMET_EDIT_02 = 1;
     public static String currentPathFile;
-    public static ArrayList<String> currentPathFiles;
     public static int indexPathFile;
+    public static ArrayList<String> arrPathFile;
     private boolean isPlayingGif = true;
     private int currentPageSelected = 0;
     private ViewPager pager;

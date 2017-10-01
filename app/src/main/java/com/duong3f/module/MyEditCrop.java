@@ -7,11 +7,12 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.duong3f.config.Config;
 import com.group3f.gifmaker.R;
 
-import me.littlecheesecake.croplayout.EditableImage;
 import me.littlecheesecake.croplayout.handler.OnBoxChangedListener;
 import me.littlecheesecake.croplayout.model.ScalableBox;
+import me.littlecheesecake.croplayout.util.ImageHelper;
 
 /**
  * Created by d on 9/28/2017.
@@ -27,7 +28,7 @@ public class MyEditCrop extends FrameLayout {
 
     public ImageView imageView;
     public MySelectView selectionView;
-    public EditableImage editableImage;
+    public MyEditableImage editableImage;
 
     public float lineWidth;
     public float cornerWidth;
@@ -86,7 +87,7 @@ public class MyEditCrop extends FrameLayout {
         return selectionView;
     }
 
-    public EditableImage getEditableImage() {
+    public MyEditableImage getEditableImage() {
         return editableImage;
     }
 
@@ -107,7 +108,7 @@ public class MyEditCrop extends FrameLayout {
      * @param context       activity
      * @param editableImage image to be edited
      */
-    public void initView(Context context, EditableImage editableImage) {
+    public void initView(Context context, MyEditableImage editableImage) {
         this.editableImage = editableImage;
         selectionView = new MySelectView(context,
                 lineWidth, cornerWidth, cornerLength,
@@ -129,10 +130,9 @@ public class MyEditCrop extends FrameLayout {
     public void rotateImageView() {
         //rotate bitmap
         editableImage.rotateOriginalImage(90);
-
         //re-calculate and draw selection box
-        editableImage.getBox().setX1(10);
-        editableImage.getBox().setY1(10);
+        editableImage.getBox().setX1(0);
+        editableImage.getBox().setY1(0);
         editableImage.getBox().setX2(editableImage.getActualSize()[0]);
         editableImage.getBox().setY2(editableImage.getActualSize()[1]);
         selectionView.setBoxSize(editableImage, editableImage.getBox(), editableImage.getViewWidth(), editableImage.getViewHeight());
@@ -141,9 +141,50 @@ public class MyEditCrop extends FrameLayout {
         imageView.setImageBitmap(editableImage.getOriginalImage());
     }
 
-    public void refeshView(String localPath) {
-        EditableImage editableImage = new EditableImage(localPath);
+    public void flipVertical() {
+        //rotate bitmap
+        editableImage.setOriginalImage(Config.flipVERTICAL(editableImage.getOriginalImage()));
+        //re-calculate and draw selection box
+        editableImage.getBox().setX1(0);
+        editableImage.getBox().setY1(0);
+        editableImage.getBox().setX2(editableImage.getActualSize()[0]);
+        editableImage.getBox().setY2(editableImage.getActualSize()[1]);
+        selectionView.setBoxSize(editableImage, editableImage.getBox(), editableImage.getViewWidth(), editableImage.getViewHeight());
+        //set bitmap as view
         imageView.setImageBitmap(editableImage.getOriginalImage());
+    }
+
+    public void flipHolizontal() {
+        //rotate bitmap
+        editableImage.setOriginalImage(Config.flipHORIZONTAL(editableImage.getOriginalImage()));
+        //re-calculate and draw selection box
+        editableImage.getBox().setX1(0);
+        editableImage.getBox().setY1(0);
+        editableImage.getBox().setX2(editableImage.getActualSize()[0]);
+        editableImage.getBox().setY2(editableImage.getActualSize()[1]);
+        selectionView.setBoxSize(editableImage, editableImage.getBox(), editableImage.getViewWidth(), editableImage.getViewHeight());
+        //set bitmap as view
+        imageView.setImageBitmap(editableImage.getOriginalImage());
+    }
+
+    public void refeshView(String localPath) {
+        MyEditableImage editableImage = new MyEditableImage(localPath);
+//        selectionView = new MySelectView(context,
+//                lineWidth, cornerWidth, cornerLength,
+//                lineColor, cornerColor, shadowColor, editableImage);
+        imageView.setImageBitmap(editableImage.getOriginalImage());
+    }
+
+    public void reset(String localPath) {
+        editableImage.setOriginalImage(ImageHelper.getBitmapFromPath(localPath));
+        editableImage.getBox().setX1(10);
+        editableImage.getBox().setY1(10);
+        editableImage.getBox().setX2(editableImage.getActualSize()[0]);
+        editableImage.getBox().setY2(editableImage.getActualSize()[1]);
+        selectionView.setBoxSize(editableImage, editableImage.getBox(), editableImage.getViewWidth(), editableImage.getViewHeight());
+        selectionView.setBoxSize(editableImage, editableImage.getBox(), editableImage.getViewWidth(), editableImage.getViewHeight());
+        imageView.setImageBitmap(editableImage.getOriginalImage());
+
     }
 
     public void refeshView() {

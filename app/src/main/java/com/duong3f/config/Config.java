@@ -1,6 +1,9 @@
 package com.duong3f.config;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Handler;
 import android.util.Log;
 
@@ -88,6 +91,19 @@ public class Config {
         }
     }
 
+
+    public static Bitmap flipVERTICAL(Bitmap src) {
+        Matrix matrix = new Matrix();
+        matrix.preScale(1.0f, -1.0f);
+        return Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);
+    }
+
+    public static Bitmap flipHORIZONTAL(Bitmap src) {
+        Matrix matrix = new Matrix();
+        matrix.preScale(-1.0f, 1.0f);
+        return Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);
+    }
+
     public static void runFFmpegCommandCallback(final String command, Context context, final Handler handler) {
         DuongLog.e(context.getClass(), command);
         try {
@@ -157,5 +173,60 @@ public class Config {
             }
         }
 
+    }
+
+    public static String saveImageCropToPath(Bitmap bitmap, int x1, int y1, int x2, int y2,
+                                             String directoryPath, String imageName) {
+        if (y2 - y1 > bitmap.getHeight())
+            y2 = bitmap.getHeight() + y1;
+        if (x2 - x1 > bitmap.getWidth())
+            x2 = bitmap.getWidth() + x1;
+
+        Bitmap cropBitmap = Bitmap.createBitmap(bitmap, x1, y1, x2 - x1, y2 - y1);
+
+        //Get the album local path
+        String fullPath = null;
+        //Save image to local path
+        try {
+            File fileDir = new File(directoryPath);
+            if (!fileDir.exists())
+                fileDir.mkdir();
+            File imageFile = new File(directoryPath, imageName);
+            FileOutputStream fos = new FileOutputStream(imageFile);
+            cropBitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.flush();
+            fos.close();
+            fullPath = imageFile.getPath();
+        } catch (IOException e) {
+            DuongLog.e(new DuongLog().getClass(), e.toString());
+        }
+        cropBitmap.recycle();
+        return fullPath;
+    }
+
+    public static Bitmap getBitmapFromPath(String filePath) {
+        BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
+        bitmapOptions.inScaled = false;
+        bitmapOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        bitmapOptions.inJustDecodeBounds = false;
+        return BitmapFactory.decodeFile(filePath, bitmapOptions);
+    }
+
+    public static void saveImageFromBitmap(Bitmap bitmap, String imagePath) {
+        try {
+            File imageFile = new File(imagePath);
+            FileOutputStream fos = new FileOutputStream(imageFile);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+        }
+    }
+
+    public static Bitmap rotateImage(Bitmap bitmap, int degree) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(degree);
+        bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        return bitmap;
     }
 }
