@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Prano</string>
+    <string name="create_calendar_message">Të lejohet që reklama të krijojë një ngjarje në kalendar?</string>
+    <string name="create_calendar_title">Krijo një ngjarje në kalendar</string>
+    <string name="debug_menu_ad_information">Informacioni i reklamës</string>
+    <string name="debug_menu_creative_preview">Pamje paraprake krijuese</string>
+    <string name="debug_menu_title">Zgjidh një modalitet korrigjimi</string>
+    <string name="debug_menu_troubleshooting">Zgjidhja e problemeve</string>
+    <string name="decline">Refuzo</string>
+    <string name="store_picture_message">Të lejohet që reklama të ruajë imazhin në \"Galerinë e fotografive\"?</string>
+    <string name="store_picture_title">Ruaje imazhin</string>
+</resources>

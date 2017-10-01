@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="color_picker_layout_width">400.0dip</dimen>
+    <dimen name="directory_dialog_height">540.0dip</dimen>
+    <dimen name="directory_dialog_width">353.0dip</dimen>
+    <dimen name="label_editor_layout_width">411.0dip</dimen>
+    <dimen name="min_width_dialog">380.0dip</dimen>
+    <dimen name="native_ads_dialog_width">379.0dip</dimen>
+    <dimen name="native_ads_main_item_weight">390.0dip</dimen>
+    <dimen name="save_dialog_width">349.0dip</dimen>
+    <dimen name="seek_bar_play_width">404.0dip</dimen>
+    <dimen name="share_dialog_width">411.0dip</dimen>
+    <dimen name="style_picker_layout_width">400.0dip</dimen>
+</resources>

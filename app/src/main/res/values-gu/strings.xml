@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">સ્વીકારો</string>
+    <string name="create_calendar_message">જાહેરાતને કૅલેન્ડર ઇવેન્ટ બનાવવાની મંજૂરી આપીએ?</string>
+    <string name="create_calendar_title">કૅલેન્ડર ઇવેન્ટ બનાવો</string>
+    <string name="debug_menu_ad_information">જાહેરાત માહિતી</string>
+    <string name="debug_menu_creative_preview">સર્જનાત્મક પૂર્વાવલોકન</string>
+    <string name="debug_menu_title">ડીબગ મોડ પસંદ કરો</string>
+    <string name="debug_menu_troubleshooting">સમસ્યા નિવારણ</string>
+    <string name="decline">નકારો</string>
+    <string name="messenger_send_button_text">મોકલો</string>
+    <string name="store_picture_message">જાહેરાતને ચિત્ર ગૅલેરી છબીઓ સંગ્રહિત કરવાની મંજૂરી આપીએ?</string>
+    <string name="store_picture_title">છબી સાચવો</string>
+</resources>

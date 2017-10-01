@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="accept">Прихвати</string>
+    <string name="create_calendar_message">Желите ли да дозволите да оглас направи догађај у календару?</string>
+    <string name="create_calendar_title">Прављење догађаја у календару</string>
+    <string name="decline">Одбиј</string>
+    <string name="search_menu_title">Pretraži</string>
+    <string name="store_picture_message">Желите ли да дозволите да оглас сачува слику у Галерији слика?</string>
+    <string name="store_picture_title">Чување слике</string>
+</resources>

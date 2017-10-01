@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">ಸ್ವೀಕರಿಸು</string>
+    <string name="create_calendar_message">ಕ್ಯಾಲೆಂಡರ್ ಈವೆಂಟ್ ರಚಿಸಲು ಜಾಹೀರಾತಿಗೆ ಅನುಮತಿಸುವುದೇ?</string>
+    <string name="create_calendar_title">ಕ್ಯಾಲೆಂಡರ್ ಈವೆಂಟ್ ರಚಿಸಿ</string>
+    <string name="debug_menu_ad_information">ಜಾಹೀರಾತು ಮಾಹಿತಿ</string>
+    <string name="debug_menu_creative_preview">ಸೃಜನಾತ್ಮಕ ಪೂರ್ವವೀಕ್ಷಣೆ</string>
+    <string name="debug_menu_title">ಡೀಬಗ್ ಮೋಡ್ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="debug_menu_troubleshooting">ಸಮಸ್ಯೆ ನಿವಾರಣೆ</string>
+    <string name="decline">ನಿರಾಕರಿಸು</string>
+    <string name="messenger_send_button_text">ಕಳುಹಿಸು</string>
+    <string name="store_picture_message">ಚಿತ್ರದ ಗ್ಯಾಲರಿಯಲ್ಲಿ ಚಿತ್ರ ಸಂಗ್ರಹಿಸಿಡಲು ಜಾಹೀರಾತಿಗೆ ಅನುಮತಿಸುವುದೇ?</string>
+    <string name="store_picture_title">ಚಿತ್ರ ಉಳಿಸು</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Кабыл алуу</string>
+    <string name="create_calendar_message">Жарнамада жылнаама окуясы түзүлсүнбү?</string>
+    <string name="create_calendar_title">Жылнаама окуясын түзүү</string>
+    <string name="debug_menu_ad_information">Жарнама жөнүндө маалымат</string>
+    <string name="debug_menu_creative_preview">Жарнама файлын алдын ала көрүү</string>
+    <string name="debug_menu_title">Мүчүлүштүктөрдү оңдоо режимин тандаңыз</string>
+    <string name="debug_menu_troubleshooting">Бузулууларды аныктап оңдоо</string>
+    <string name="decline">Баш тартуу</string>
+    <string name="store_picture_message">Жарнамадан Сүрөт галереясына сүрөт сакталсынбы?</string>
+    <string name="store_picture_title">Сүрөттү сактоо</string>
+</resources>

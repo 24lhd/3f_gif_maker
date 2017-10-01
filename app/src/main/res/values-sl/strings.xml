@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Sprejem</string>
+    <string name="create_calendar_message">Ali dovolite, da oglas ustvari koledarski dogodek?</string>
+    <string name="create_calendar_title">Ustvarjanje koledarskega dogodka</string>
+    <string name="debug_menu_ad_information">Podatki o oglasu</string>
+    <string name="debug_menu_creative_preview">Predogled datotek oglasa</string>
+    <string name="debug_menu_title">Izbira načina za odpravljanje napak</string>
+    <string name="debug_menu_troubleshooting">Odpravljanje težav</string>
+    <string name="decline">Zavrnitev</string>
+    <string name="search_menu_title">Iskanje</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="store_picture_message">Ali dovolite, da oglas shrani sliko v galeriji slik?</string>
+    <string name="store_picture_title">Shranjevanje slike</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_button_gif_editor_margin">2.0dip</dimen>
+    <dimen name="bottom_button_gif_editor_width">71.0dip</dimen>
+    <dimen name="color_picker_layout_width">350.0dip</dimen>
+    <dimen name="directory_dialog_height">500.0dip</dimen>
+    <dimen name="directory_dialog_width">302.0dip</dimen>
+    <dimen name="label_editor_layout_width">360.0dip</dimen>
+    <dimen name="min_width_dialog">340.0dip</dimen>
+    <dimen name="native_ads_dialog_width">328.0dip</dimen>
+    <dimen name="native_ads_main_item_weight">340.0dip</dimen>
+    <dimen name="save_dialog_width">306.0dip</dimen>
+    <dimen name="seek_bar_play_width">352.0dip</dimen>
+    <dimen name="seekbar_speed_layout_width">353.0dip</dimen>
+    <dimen name="share_dialog_width">360.0dip</dimen>
+    <dimen name="style_picker_layout_width">350.0dip</dimen>
+</resources>

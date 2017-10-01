@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">ຍອມຮັບ</string>
+    <string name="create_calendar_message">ອະນຸຍາດໃຫ້ໂຄສະນາສ້າງນັດໝາຍປະຕິທິນໄດ້ບໍ?</string>
+    <string name="create_calendar_title">ສ້າງນັດໝາຍປະຕິທິນ</string>
+    <string name="debug_menu_ad_information">ຂໍ້ມູນໂຄສະນາ</string>
+    <string name="debug_menu_creative_preview">ຕົວຢ່າງໂຄສະນາ</string>
+    <string name="debug_menu_title">ເລືອກໂໝດດີບັກ</string>
+    <string name="debug_menu_troubleshooting">ການແກ້ໄຂບັນຫາ</string>
+    <string name="decline">ປະຕິເສດ</string>
+    <string name="store_picture_message">ອະນຸຍາດໃຫ້ໂຄສະນາບັນທຶກຮູບພາບໃສ່ຫ້ອງສະໝຸດພາບໄດ້ບໍ່?</string>
+    <string name="store_picture_title">ບັນທຶກຮູບພາບ</string>
+</resources>

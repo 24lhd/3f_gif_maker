@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">လက်ခံရန်</string>
+    <string name="create_calendar_message">Ad အား ပြက္ခဒိန်ပေါ်၌ ပွဲအစီအစဉ်တစ်ခုကို ဖန်တီးခွင့်ပြုမှာလား။</string>
+    <string name="create_calendar_title">ပြက္ခဒိန်ပေါ်တွင် ပွဲအစီအစဉ် ဖန်တီးပါ</string>
+    <string name="debug_menu_ad_information">ကြော်ငြာအချက်အလက်များ</string>
+    <string name="debug_menu_creative_preview">တီထွင်ဖန်တီးစွမ်းရှိသည့် အစမ်းကြည့်ရှုမှု</string>
+    <string name="debug_menu_title">အမှားရှာပြင်သည့် စနစ်တစ်ခုကို ရွေးချယ်ပါ</string>
+    <string name="debug_menu_troubleshooting">ပြဿနာရှာဖွေဖြေရှင်းခြင်း</string>
+    <string name="decline">ငြင်းပယ်ရန်</string>
+    <string name="store_picture_message">Ad အား ဓာတ်ပုံကို ရုပ်ပုံပြခန်းတွင် သိမ်းခွင့်ပြုမှာလား။</string>
+    <string name="store_picture_title">ဓာတ်ပုံကို သိမ်းပါ</string>
+</resources>

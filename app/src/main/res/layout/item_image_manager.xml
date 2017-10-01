@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/image_manager_main_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="1dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/image_thumbnail_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/image_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/image_item_remove"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:duplicateParentState="false"
+            android:focusable="true"
+            android:paddingBottom="4dp"
+            android:paddingLeft="4dp"
+            android:src="@drawable/ic_btn_image_item_remove" />
+    </RelativeLayout>
+</RelativeLayout>

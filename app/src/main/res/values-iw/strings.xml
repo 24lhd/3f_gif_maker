@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">מסכים</string>
+    <string name="create_calendar_message">האם לאפשר למודעה ליצור אירוע ביומן?</string>
+    <string name="create_calendar_title">צור אירוע יומן</string>
+    <string name="debug_menu_ad_information">פרטי המודעה</string>
+    <string name="debug_menu_creative_preview">תצוגה מקדימה של קריאייטיב</string>
+    <string name="debug_menu_title">בחר מצב של ניפוי באגים</string>
+    <string name="debug_menu_troubleshooting">פתרון בעיות</string>
+    <string name="decline">דחה</string>
+    <string name="search_menu_title">חפש</string>
+    <string name="status_bar_notification_info_overflow">‎999+‎</string>
+    <string name="store_picture_message">האם לאפשר למודעה לאחסן תמונה בגלריית התמונות?</string>
+    <string name="store_picture_title">שמור תמונה</string>
+</resources>

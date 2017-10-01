@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Ընդունել</string>
+    <string name="create_calendar_message">Թույլ տա՞լ Գովազդին ստեղծել օրացույցի իրադարձություն:</string>
+    <string name="create_calendar_title">Ստեղծել օրացույցի իրադարձություն</string>
+    <string name="debug_menu_ad_information">Գովազդի մասին տեղեկատվություն</string>
+    <string name="debug_menu_creative_preview">Ստեղծագործական նախադիտում</string>
+    <string name="debug_menu_title">Ընտրեք վրիպազերծման ռեժիմը</string>
+    <string name="debug_menu_troubleshooting">Անսարքությունների շտկում</string>
+    <string name="decline">Մերժել</string>
+    <string name="store_picture_message">Թույլ տա՞լ Գովազդին պահել պատկերը Պատկերասրահում:</string>
+    <string name="store_picture_title">Պահել պատկերը</string>
+</resources>

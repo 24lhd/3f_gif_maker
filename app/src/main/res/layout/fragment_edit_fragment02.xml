@@ -1,0 +1,73 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fffafafa">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/action_bar_control_speed_fragment"
+            android:layout_width="fill_parent"
+            android:layout_height="34.0dip"
+            android:layout_alignParentTop="true">
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6.0dip"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/speed"
+                android:textColor="#ff252525"
+                android:textSize="18.0dip" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2.0px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="6.0dip"
+                android:layout_marginRight="6.0dip"
+                android:background="#ffd9d9d9" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/action_bar_control_speed_fragment"
+            android:layout_marginTop="5dp"
+            android:duplicateParentState="false">
+
+
+            <TextView
+                android:id="@+id/currentSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textSize="18sp" />
+
+            <SeekBar
+                android:id="@+id/seekbar_speed_controler"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="6dip"
+                android:minHeight="6dip"
+                android:layout_margin="10dp"
+                android:paddingBottom="10px"
+                android:paddingLeft="30px"
+                android:paddingRight="30px"
+                android:paddingTop="10px"
+                android:layout_below="@+id/currentSpeed"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>
