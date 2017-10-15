@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">پذیرفتن</string>
+    <string name="create_calendar_message">به آگهی اجازه داده شود رویداد تقویم ایجاد کند؟</string>
+    <string name="create_calendar_title">ایجاد رویداد تقویم</string>
+    <string name="debug_menu_ad_information">اطلاعات آگهی</string>
+    <string name="debug_menu_creative_preview">Creative Preview</string>
+    <string name="debug_menu_title">انتخاب حالت اشکال‌زدایی</string>
+    <string name="debug_menu_troubleshooting">عیب‌یابی</string>
+    <string name="decline">نپذیرفتن</string>
+    <string name="search_menu_title">جستجو</string>
+    <string name="status_bar_notification_info_overflow">۹۹۹+</string>
+    <string name="store_picture_message">به آگهی اجازه داده شود در گالری تصویر شما تصویر ذخیره کند؟</string>
+    <string name="store_picture_title">ذخیره تصویر</string>
+</resources>

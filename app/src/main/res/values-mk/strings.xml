@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Прифати</string>
+    <string name="create_calendar_message">Дали дозволувате рекламата да создаде настан во календарот?</string>
+    <string name="create_calendar_title">Создај настан во календарот</string>
+    <string name="debug_menu_ad_information">Информации за реклама</string>
+    <string name="debug_menu_creative_preview">Преглед на креатива</string>
+    <string name="debug_menu_title">Одберете режим на отстранување грешки</string>
+    <string name="debug_menu_troubleshooting">Отстранување грешки</string>
+    <string name="decline">Одбиј</string>
+    <string name="store_picture_message">Дали дозволувате рекламата да ја зачува сликата во галеријата со слики?</string>
+    <string name="store_picture_title">Зачувај ја сликата</string>
+</resources>

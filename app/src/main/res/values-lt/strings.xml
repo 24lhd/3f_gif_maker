@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Priimti</string>
+    <string name="create_calendar_message">Leisti skelbimui sukurti kalendoriaus įvykį?</string>
+    <string name="create_calendar_title">Kalendoriaus įvykio kūrimas</string>
+    <string name="debug_menu_ad_information">Skelbimo informacija</string>
+    <string name="debug_menu_creative_preview">Skelbimo failo peržiūra</string>
+    <string name="debug_menu_title">Derinimo režimo pasirinkimas</string>
+    <string name="debug_menu_troubleshooting">Trikčių šalinimas</string>
+    <string name="decline">Atmesti</string>
+    <string name="search_menu_title">Paieška</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="store_picture_message">Leisti skelbimui išsaugoti vaizdą nuotraukų galerijoje?</string>
+    <string name="store_picture_title">Vaizdo išsaugojimas</string>
+</resources>

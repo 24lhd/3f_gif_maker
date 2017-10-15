@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Godta</string>
+    <string name="create_calendar_message">Vil du la annonsen opprette en kalenderaktivitet?</string>
+    <string name="create_calendar_title">Opprett kalenderaktivitet</string>
+    <string name="debug_menu_ad_information">Annonseinformasjon</string>
+    <string name="debug_menu_creative_preview">Forhåndsvisning av reklamen</string>
+    <string name="debug_menu_title">Velg en feilsøkingsmodus</string>
+    <string name="debug_menu_troubleshooting">Feilsøking</string>
+    <string name="decline">Avslå</string>
+    <string name="messenger_send_button_text">Send</string>
+    <string name="search_menu_title">Søk</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="store_picture_message">Vil du la annonsen lagre bildet i bildegalleriet?</string>
+    <string name="store_picture_title">Lagre bilde</string>
+</resources>

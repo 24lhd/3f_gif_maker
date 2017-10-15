@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">स्वीकार करें</string>
+    <string name="create_calendar_message">विज्ञापन को कैलेंडर इवेंट बनाने की अनुमति दें?</string>
+    <string name="create_calendar_title">कैलेंडर इवेंट बनाएं</string>
+    <string name="debug_menu_ad_information">विज्ञापन की जानकारी</string>
+    <string name="debug_menu_creative_preview">क्रिएटिव पूर्वावलोकन</string>
+    <string name="debug_menu_title">कोई डीबग मोड चुनें</string>
+    <string name="debug_menu_troubleshooting">समस्या निवारण करना</string>
+    <string name="decline">अस्वीकार करें</string>
+    <string name="messenger_send_button_text">भेजें</string>
+    <string name="search_menu_title">खोज</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="store_picture_message">विज्ञापन को चित्र गैलरी में चित्र सहेजने की अनुमति दें?</string>
+    <string name="store_picture_title">चित्र सहेजें</string>
+</resources>

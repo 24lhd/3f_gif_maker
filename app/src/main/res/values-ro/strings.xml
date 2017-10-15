@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Accept</string>
+    <string name="create_calendar_message">Permiteți ca anunțul să creeze un eveniment în calendar?</string>
+    <string name="create_calendar_title">Crearea unui eveniment în calendar</string>
+    <string name="debug_menu_ad_information">Informații privind anunțul</string>
+    <string name="debug_menu_creative_preview">Previzualizarea materialelor publicitare</string>
+    <string name="debug_menu_title">Selectați modul Remedierea erorilor</string>
+    <string name="debug_menu_troubleshooting">Remedierea erorilor</string>
+    <string name="decline">Refuzați</string>
+    <string name="search_menu_title">Căutați</string>
+    <string name="status_bar_notification_info_overflow">˃999</string>
+    <string name="store_picture_message">Permiteți ca anunțul să stocheze imaginea în Galeria de fotografii?</string>
+    <string name="store_picture_title">Salvarea imaginii</string>
+</resources>

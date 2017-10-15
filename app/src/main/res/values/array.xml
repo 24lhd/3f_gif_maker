@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="background">
+        <item>@string/black</item>
+        <item>@string/white</item>
+        <item>@string/transparent</item>
+    </array>
+    <array name="backgroundValue">
+        <item>#FF000000</item>
+        <item>#FFFFFFFF</item>
+        <item>#00000000</item>
+    </array>
+    <array name="category">
+        <item>@string/trending</item>
+        <item>@string/funny</item>
+        <item>@string/animal</item>
+        <item>@string/movie</item>
+        <item>@string/search</item>
+    </array>
+    <array name="language">
+        <item>English</item>
+        <item>Deutsche</item>
+        <item>Spanish</item>
+        <item>Italiano</item>
+        <item>日本語</item>
+        <item>한국어</item>
+        <item>Tiếng Việt</item>
+        <item>Turkish</item>
+        <item>Polish</item>
+        <item>Greek</item>
+        <item>French</item>
+    </array>
+    <array name="languageValue">
+        <item>en</item>
+        <item>de</item>
+        <item>es</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>ko</item>
+        <item>vi</item>
+        <item>tr</item>
+        <item>pl</item>
+        <item>el</item>
+        <item>fr</item>
+    </array>
+    <array name="outputSize">
+        <item>@string/max_350_pixel</item>
+        <item>@string/max_400_pixel</item>
+        <item>@string/max_450_pixel</item>
+    </array>
+    <array name="outputSizeValues">
+        <item>350</item>
+        <item>400</item>
+        <item>450</item>
+    </array>
+</resources>

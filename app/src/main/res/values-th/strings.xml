@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">ยอมรับ</string>
+    <string name="create_calendar_message">อนุญาตให้โฆษณาสร้างกิจกรรมในปฏิทินไหม</string>
+    <string name="create_calendar_title">สร้างกิจกรรมในปฏิทิน</string>
+    <string name="debug_menu_ad_information">ข้อมูลโฆษณา</string>
+    <string name="debug_menu_creative_preview">ดูตัวอย่างครีเอทีฟโฆษณา</string>
+    <string name="debug_menu_title">เลือกโหมดแก้ปัญหา</string>
+    <string name="debug_menu_troubleshooting">การแก้ปัญหา</string>
+    <string name="decline">ปฏิเสธ</string>
+    <string name="messenger_send_button_text">ส่ง</string>
+    <string name="search_menu_title">ค้นหา</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="store_picture_message">อนุญาตให้โฆษณาจัดเก็บรูปภาพในแกลเลอรีภาพไหม</string>
+    <string name="store_picture_title">บันทึกรูปภาพ</string>
+</resources>

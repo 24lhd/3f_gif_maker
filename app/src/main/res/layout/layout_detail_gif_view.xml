@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#0000"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.long3f.views.TouchImageView
+        android:id="@+id/imgDisplay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="fitCenter" />
+    <RelativeLayout
+        android:id="@+id/ic_gif"
+        android:layout_width="50dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:background="@drawable/button_gif_item_bg"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/splash_bound_button_gif"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:padding="3dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_gif_bound" />
+        <TextView
+            android:id="@+id/splash_center_button_gif"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:shadowColor="#000000"
+            android:shadowDy="0.0"
+            android:shadowRadius="2.0"
+            android:text="GIF"
+            android:textColor="#ffffff"
+            android:textSize="24dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="15dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/current_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/total_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="3dp"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <com.xw.repo.BubbleSeekBar
+        android:id="@+id/seekbar_gif_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="72dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="32dp"
+        android:focusableInTouchMode="true"
+        android:scrollbarSize="1dp"
+        android:visibility="visible"
+        app:bsb_hide_bubble="true"
+        app:bsb_is_float_type="false"
+        app:bsb_min="1"
+        app:bsb_second_track_color="@color/white"
+        app:bsb_second_track_size="6dp"
+        app:bsb_touch_to_seek="true"
+        app:bsb_track_color="@color/pinkish_grey"
+        app:bsb_track_size="1dp" />
+
+</RelativeLayout>

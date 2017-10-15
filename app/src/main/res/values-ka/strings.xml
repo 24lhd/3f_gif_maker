@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">მიღება</string>
+    <string name="create_calendar_message">აძლევთ ნებას რეკლამას, შექმნას მოვლენა კალენდარში?</string>
+    <string name="create_calendar_title">კალენდარში მოვლენის შექმნა</string>
+    <string name="debug_menu_ad_information">რეკლამის ინფორმაცია</string>
+    <string name="debug_menu_creative_preview">რეკლამის გადახედვა</string>
+    <string name="debug_menu_title">გამართვის რეჟიმის არჩევა</string>
+    <string name="debug_menu_troubleshooting">დეფექტების აღმოფხვრა</string>
+    <string name="decline">უარყოფა</string>
+    <string name="store_picture_message">აძლევთ ნებას რეკლამას, შეინახოს სურათი გალერეაში?</string>
+    <string name="store_picture_title">სურათის შენახვა</string>
+</resources>

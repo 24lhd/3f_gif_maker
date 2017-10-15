@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemContainer"
+    android:layout_width="@dimen/h_item_gif"
+    android:layout_height="@dimen/h_item_gif"
+    android:padding="3dp"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:tag="1">
+
+    <ImageView
+        android:id="@+id/img_gif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:tag="image" />
+
+    <TextView
+        android:id="@+id/txt_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#88000000"
+        android:maxLines="1"
+        android:tag="date"
+        android:text="date"
+        android:textColor="#fff" />
+</FrameLayout>
