@@ -11,7 +11,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -183,8 +182,7 @@ public class GifDetailActivity extends Activity implements View.OnClickListener 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String rootDir = Environment.getExternalStorageDirectory()
-                        + File.separator + "GifMaker/.data";
+                String rootDir = AppUtils.rootDir+"/.data";
                 String gifpath = rootDir + "/" + GIPHYFragment.listUrl.get(viewPager.getCurrentItem()).getId() + ".gif";
                 File file = new File(gifpath);
                 if (file.exists()) {
@@ -293,9 +291,6 @@ public class GifDetailActivity extends Activity implements View.OnClickListener 
     }
 
     private void extractImagesFromGif(String inputPath) {
-        File moviesDir = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES
-        );
         GifDrawable gifDrawable = null;
         try {
             gifDrawable = new GifDrawable(inputPath);
@@ -305,9 +300,8 @@ public class GifDetailActivity extends Activity implements View.OnClickListener 
             e.printStackTrace();
         }
 
-
         String outFile = "out_%03d.png";
-        File dir = new File(moviesDir, "GifEditor");
+        File dir = new File(pathImageExtracted);
         if (dir.exists()) {
             AppUtils.clearFileInfolder(dir.getAbsolutePath());
         } else {

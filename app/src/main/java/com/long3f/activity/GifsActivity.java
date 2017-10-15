@@ -88,8 +88,7 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
 
     private Dialog mBottomSheetDialog;
     private EditText edInputLink;
-    private String rootDir = Environment.getExternalStorageDirectory()
-            + File.separator + "GifMaker/.data";
+    private String dirTemp = AppUtils.rootDir+"/.data";
     private String fileFromLinkVideo = "fileFromLinkVideo.mp4";
     private String fileFromLinkGif = "fileFromLinkGif.gif";
 
@@ -124,11 +123,27 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void setupViewPager(ViewPager viewPager) {
+        initFolder();
         GifsPagerAdapter adapter = new GifsPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new YourGifsFragment(true), getText(R.string.yourgifs).toString());
         adapter.addFrag(new GIPHYFragment(), getText(R.string.gifhy).toString());
         adapter.addFrag(new YourGifsFragment(false), getText(R.string.other_gif).toString());
         viewPager.setAdapter(adapter);
+    }
+
+    private void initFolder() {
+        File file = new File(AppUtils.rootDir);
+        if(!file.exists()){
+            file.mkdir();
+        }
+        file = new File(AppUtils.rootDir+"/.data");
+        if(!file.exists()){
+            file.mkdir();
+        }
+        file = new File(pathImageExtracted);
+        if(!file.exists()){
+            file.mkdir();
+        }
     }
 
 
@@ -332,14 +347,10 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void videoToListImage(Uri selectedVideoUri, long startMs, long endMs, double fps) {
-        File moviesDir = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES
-        );
         String filePrefix = "extract_picture";
         String fileExtn = ".png";
-
         String yourRealPath = getPath(GifsActivity.this, selectedVideoUri);
-        File dir = new File(moviesDir, "GifEditor");
+        File dir = new File(pathImageExtracted);
         if (dir.exists()) {
             AppUtils.clearFileInfolder(dir.getAbsolutePath());
         } else {
@@ -351,15 +362,12 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void videoToListImageByPath(String path, long startMs, long endMs, double fps) {
-        File moviesDir = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES
-        );
         String filePrefix = "extract_picture";
         String fileExtn = ".png";
 
 //        String yourRealPath = getPath(GifsActivity.this, path);
 //        DuongLog.e(getClass(), " yourRealPath" + yourRealPath);
-        File dir = new File(moviesDir, "GifEditor");
+        File dir = new File(pathImageExtracted);
         if (dir.exists()) {
             AppUtils.clearFileInfolder(dir.getAbsolutePath());
         } else {
@@ -371,12 +379,8 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void extractImagesFromGif(String inputPath) {
-        File moviesDir = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES
-        );
-
         String outFile = "extract_picture_%03d.png";
-        File dir = new File(moviesDir, "GifEditor");
+        File dir = new File(pathImageExtracted);
         if (dir.exists()) {
             AppUtils.clearFileInfolder(dir.getAbsolutePath());
         } else {
@@ -553,16 +557,16 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
                 public void onFailure(String s) {
                     Log.d(TAG, "FAILED with output : " + s);
                     progressDialog.dismiss();
-                    (new File(rootDir, fileFromLinkVideo)).delete();
-                    (new File(rootDir, fileFromLinkGif)).delete();
+                    (new File(dirTemp, fileFromLinkVideo)).delete();
+                    (new File(dirTemp, fileFromLinkGif)).delete();
                 }
 
                 @Override
                 public void onSuccess(String s) {
                     Log.d(TAG, "SUCCESS with output : " + s);
                     cropAndAddBitmapFromFolderToListFrame();
-                    (new File(rootDir, fileFromLinkVideo)).delete();
-                    (new File(rootDir, fileFromLinkGif)).delete();
+                    (new File(dirTemp, fileFromLinkVideo)).delete();
+                    (new File(dirTemp, fileFromLinkGif)).delete();
                 }
 
                 @Override
@@ -585,8 +589,8 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onFinish() {
                     Log.d(TAG, "Finished command : ffmpeg " + command.toString());
-                    (new File(rootDir, fileFromLinkVideo)).delete();
-                    (new File(rootDir, fileFromLinkGif)).delete();
+                    (new File(dirTemp, fileFromLinkVideo)).delete();
+                    (new File(dirTemp, fileFromLinkGif)).delete();
 
                 }
             });
@@ -741,7 +745,7 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
             int count;
             try {
 
-                File rootFile = new File(rootDir);
+                File rootFile = new File(dirTemp);
                 if (rootFile.exists()) {
                     AppUtils.clearFileInfolder(rootFile.getAbsolutePath());
                 } else {
@@ -758,8 +762,8 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
                 // Output stream to write file
 //                String split[] = param[0].split(".");
 //                String ex = split[split.length - 1];
-                OutputStream output = new FileOutputStream(new File(rootDir, fileFromLinkVideo));
-                Log.e("Download file", rootDir + "/" + fileFromLinkGif);
+                OutputStream output = new FileOutputStream(new File(dirTemp, fileFromLinkVideo));
+                Log.e("Download file", dirTemp + "/" + fileFromLinkGif);
 
                 byte data[] = new byte[1024];
                 long total = 0;
@@ -786,7 +790,7 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
                 return null;
 
             }
-            return rootDir + "/" + fileFromLinkVideo;
+            return dirTemp + "/" + fileFromLinkVideo;
         }
 
         protected void onProgressUpdate(String... progress) {
@@ -807,11 +811,15 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
             if (filePath != null) {
                 Uri videoUri = Uri.fromFile(new File(filePath));
                 MediaPlayer mp = MediaPlayer.create(GifsActivity.this, videoUri);
-                long duration = mp.getDuration();
-                mp.release();
-                EditGifActivity.fps = getSettingFPS(duration);
-                Log.e("durationVideo", duration + " - fps " + fps);
-                videoToListImage(videoUri, 0, duration, fps);
+                if(mp!=null) {
+                    long duration = mp.getDuration();
+                    mp.release();
+                    EditGifActivity.fps = getSettingFPS(duration);
+                    Log.e("durationVideo", duration + " - fps " + fps);
+                    videoToListImage(videoUri, 0, duration, fps);
+                }else {
+                    Toast.makeText(GifsActivity.this, getText(R.string.not_support_this_video), Toast.LENGTH_SHORT).show();
+                }
             }
         }
 
@@ -839,7 +847,7 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
 
             try {
 
-                File rootFile = new File(rootDir);
+                File rootFile = new File(dirTemp);
                 rootFile.mkdir();
 
                 URL url = new URL(param[0]);
@@ -850,8 +858,8 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
                 // input stream to read file - with 8k buffer
                 InputStream input = new BufferedInputStream(url.openStream(), 8192);
                 // Output stream to write file
-                OutputStream output = new FileOutputStream(new File(rootDir, fileFromLinkGif));
-                Log.e("Download file", rootDir + "/" + fileFromLinkGif);
+                OutputStream output = new FileOutputStream(new File(dirTemp, fileFromLinkGif));
+                Log.e("Download file", dirTemp + "/" + fileFromLinkGif);
                 byte data[] = new byte[1024];
                 long total = 0;
                 while ((count = input.read(data)) != -1) {
@@ -877,7 +885,7 @@ public class GifsActivity extends AppCompatActivity implements View.OnClickListe
                 return null;
 
             }
-            return rootDir + "/" + fileFromLinkGif;
+            return dirTemp + "/" + fileFromLinkGif;
         }
 
         protected void onProgressUpdate(String... progress) {

@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -34,6 +35,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.duong3f.module.DuongLog;
 import com.duong3f.mvp.imagetogif.SelectImageFormFolderAcivity;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -78,8 +80,9 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
     public static View imageManager;
     private FFmpeg ffmpeg;
     private ProgressDialog progressDialog;
-    String outPutDir = AppUtils.rootDir;
-    String frameTempDir = outPutDir+"/.data";
+    String frameTempDir = Environment.getExternalStorageDirectory().getPath() + "/GifMaker/.data";
+    String outPutDir = Environment.getExternalStorageDirectory().getPath()
+            + "/GifMaker";
 
     private ViewPagerAdapter viewPagerAdapter;
     private ImageView play_pause, btnBack, btnHideImageManager;
@@ -97,7 +100,8 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
     ShareDialog shareDialog;
     Dialog mBottomSheetDialog;
     public static ArrayList<Bitmap> listFrame = new ArrayList<>();
-    public static String pathImageExtracted = AppUtils.rootDir+"/.gifframe";
+    public static String pathImageExtracted = Environment.getExternalStoragePublicDirectory(
+            Environment.DIRECTORY_PICTURES) + "/GifEditor/";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -114,6 +118,7 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        if (resultCode == RESULT_OK)
 //            arrBitmapCropped = data.getParcelableArrayListExtra(Config.ARRAY_BITMAP_CROPPED);
+        DuongLog.e(getClass(), "" + arrBitmapCropped.size());
     }
 
     private void loadFFMpegBinary() {
@@ -188,11 +193,11 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
                 } else {
                     AppUtils.saveImageToFolderFromListBitmap(listFrame, frameTempDir, isRepeat);
                 }
-//                Bitmap bg = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-//                Canvas canvas = new Canvas(bg);
-//                canvas.drawColor(Color.WHITE);
-//                canvas.drawBitmap(bg, 0, 0, null);
-//                AppUtils.saveBitmap(bg, frameTempDir + "/bg.png");
+                Bitmap bg = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bg);
+                canvas.drawColor(Color.WHITE);
+                canvas.drawBitmap(bg, 0, 0, null);
+                AppUtils.saveBitmap(bg, frameTempDir + "/bg.png");
                 return null;
             }
 
@@ -240,7 +245,6 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
                 public void onSuccess(String s) {
                     Log.d("SUCCESS", " with output " + s);
                     AppUtils.addImageToGallery(filePath, getApplicationContext());
-                    AppUtils.clearFileInfolder(frameTempDir);
                     Toast.makeText(EditGifActivity.this, getText(R.string.save_success) + " " + filePath, Toast.LENGTH_SHORT).show();
                     finish();
 
@@ -370,7 +374,7 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        String outPutFile = outPutDir + "/videotogif_" + System.currentTimeMillis() + ".gif";
+
         switch (view.getId()) {
             case R.id.txt_imagemanager_addimage:
                 Intent intent = new Intent(EditGifActivity.this, SelectImageFormFolderAcivity.class);
@@ -400,9 +404,11 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
                 hideImageManager();
                 break;
             case R.id.txt_save:
-                saveGif(outPutFile);
+                saveGif();
                 break;
             case R.id.txt_share:
+//                Config.shareImageByFile(new File(),this);
+                DuongLog.e(getClass(), "show");
                 shareDialog(EditGifActivity.this);
                 break;
             case R.id.btn_back:
@@ -484,10 +490,16 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
         });
     }
 
-    private void saveGif(String outPutFile) {
+    private void saveGif() {
+        File dir = new File(outPutDir);
+        if (!dir.exists()) {
+            dir.mkdir();
+        }
+
         float value = EditFragment02.seekBar.getMax() - (EditFragment02.seekBar.getProgress() - 5); //get position seekbar;
         float delay = value / 100f; //delay beetween frames
         float fps = 1 / delay;
+        String outPutFile = outPutDir + "/videotogif_" + System.currentTimeMillis() + ".gif";
         listImageToGif(gifSize, gifSize, Color.TRANSPARENT, fps, outPutFile, EditFragment01.runSeekBar.isRepeat());
     }
 
@@ -521,7 +533,6 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
             hideImageManager();
             return;
         }
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(getText(R.string.save_change_before_back))
                 .setPositiveButton(getText(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -538,26 +549,12 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
                 })
                 .setNegativeButton(getText(R.string.save), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        String outPutFile = outPutDir + "/videotogif_" + System.currentTimeMillis() + ".gif";
-                        saveGif(outPutFile);
+                        saveGif();
                     }
                 }).setCancelable(true);
 
         AlertDialog alert = builder.create();
         alert.show();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        EditFragment01.runSeekBar.stop();
-        AppUtils.clearFileInfolder(frameTempDir);
-        AppUtils.clearFileInfolder(pathImageExtracted);
-        listFrame.clear();
-        if (arrBitmapCropped != null) {
-            arrBitmapCropped.clear();
-        }
-        ImageManagerAdapter.bitmapArrayList.clear();
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

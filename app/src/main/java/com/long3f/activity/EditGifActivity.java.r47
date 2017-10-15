@@ -114,6 +114,7 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        if (resultCode == RESULT_OK)
 //            arrBitmapCropped = data.getParcelableArrayListExtra(Config.ARRAY_BITMAP_CROPPED);
+//        DuongLog.e(getClass(), "" + arrBitmapCropped.size());
     }
 
     private void loadFFMpegBinary() {
@@ -403,6 +404,8 @@ public class EditGifActivity extends AppCompatActivity implements View.OnClickLi
                 saveGif(outPutFile);
                 break;
             case R.id.txt_share:
+                //saveGif(outPutFile);
+                //Config.shareImageByFile(new File(outPutFile),this);
                 shareDialog(EditGifActivity.this);
                 break;
             case R.id.btn_back:

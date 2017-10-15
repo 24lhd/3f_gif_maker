@@ -38,6 +38,9 @@ import java.util.Comparator;
 public class AppUtils {
     final static String MEDIA_PATH = Environment.getExternalStorageDirectory().getPath() + "/";
     private static String gif = ".gif";
+    public static String rootDir = Environment.getExternalStorageDirectory()
+            + File.separator + "GifMaker";
+
 
     public static ArrayList<String> getFromSdcard() {
         File file = new File(android.os.Environment.getExternalStorageDirectory(), "/VideoToGif");
@@ -105,14 +108,8 @@ public class AppUtils {
     public static void saveImageToFolderFromListBitmap(ArrayList<Bitmap> listImage,String toFolder,
                                                             boolean isRepeat) {
 
-        String dir;
-        if(toFolder == null || toFolder.equals("")){
-            dir = Environment.getExternalStoragePublicDirectory(
-                    Environment.DIRECTORY_PICTURES) + "/GifFrames";
-        }else {
-            dir = toFolder;
-        }
-        File dirParen = new File(dir);
+        String dir = toFolder;
+        File dirParen = new File(toFolder);
         if (dirParen.exists()) {
             dirParen.delete();
             dirParen.mkdir();
