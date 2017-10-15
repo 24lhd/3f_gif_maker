@@ -86,7 +86,12 @@ public class SelectImageFormFolderAcivity extends AppCompatActivity implements S
 
     @Override
     public void showListFolderImage() {
-        rcvFolderImage.setAdapter(new AdaptorFolderImageListView(this, android.R.layout.simple_list_item_1, folderImages));
+        try {
+            rcvFolderImage.setAdapter(new AdaptorFolderImageListView(this, android.R.layout.simple_list_item_1, folderImages));
+        } catch (Exception e) {
+            folderImages = new ArrayList<>();
+            rcvFolderImage.setAdapter(new AdaptorFolderImageListView(this, android.R.layout.simple_list_item_1, folderImages));
+        }
         rcvFolderImage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -190,7 +195,6 @@ public class SelectImageFormFolderAcivity extends AppCompatActivity implements S
             imv_is_select.setVisibility(View.GONE);
             imagesInFolder.get(index).setSelect(false);
         }
-
 
 
 //        DuongLog.e(getClass(), "isChoose sau" + isChoose);

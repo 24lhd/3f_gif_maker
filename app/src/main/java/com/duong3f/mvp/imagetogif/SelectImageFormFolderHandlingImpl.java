@@ -26,7 +26,11 @@ public class SelectImageFormFolderHandlingImpl implements SelectImageFormFolderH
                 folderImages = (ArrayList<AlbumImage>) msg.obj;
                 setListFolderImage(folderImages);
                 showListFolderImage();
-                setListImageInFolder(folderImages.get(0));
+                try {
+                    setListImageInFolder(folderImages.get(0));
+                } catch (NullPointerException e) {
+                }
+
                 showListImageSelect();
             }
         });
